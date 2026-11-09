@@ -1,0 +1,549 @@
+{
+  "phrases": {
+    "right": ["Yes! Great thinking.", "You got it!", "That's right!", "Super choice!", "Nice job!"],
+    "wrong": ["Hmm, think again.", "Not quite. Try again.", "Let's think about that one again."],
+    "start": "Tap anywhere to start!",
+    "tapCard": "Tap a card to hear it. Then drag it, or tap the box where it goes.",
+    "nowTapBox": "Now tap the box where it goes.",
+    "matchStart": "Tap a card on the left. Then tap the card on the right that matches it.",
+    "matchPick": "Now find its match on the right.",
+    "next": "Next",
+    "again": "Play again",
+    "keepGoing": "Keep going",
+    "backWeek": "Back to the week",
+    "earnedBadge": "You earned a badge!",
+    "hear": "Tap the speaker to hear it again.",
+    "allDone": "You finished every activity this week! Amazing!",
+    "chooseAnswer": "Tap the answer you think is best.",
+    "home": "Home",
+    "printAsk": "Ask your teacher before you print.",
+    "typeName": "Type your name, then tap the green button.",
+    "nameFirst": "Type your name first.",
+    "clearBalance": "Start over",
+    "passwordIntro": "Make a super password! Tap a word from each row. Then add a number and a symbol.",
+    "passwordWeak": "It's a start. Keep adding!",
+    "passwordOk": "Getting stronger!",
+    "passwordStrong": "Super strong! Long and silly passwords are hard to guess.",
+    "passwordSecret": "Remember: a password is a secret. Who can know your password?",
+    "spotLeft": "Keep looking for ads.",
+    "spotAllFound": "You found all the ads!",
+    "notAnAd": "That one is not an ad. It is part of the page.",
+    "chatSent": "Message sent!",
+    "pledgeNeed": "Pick at least three promises.",
+    "pledgeDone": "Your pledge is ready! Sign it with your name."
+  },
+  "weeks": [
+    {
+      "n": 1, "emoji": "📱", "color": "#017EA7",
+      "title": "My iPad, My Job",
+      "kidTitle": "My iPad, My Job",
+      "bigIdea": "A digital citizen takes care of their device and follows the rules, just like a good citizen at school.",
+      "words": [
+        { "word": "digital citizen", "meaning": "someone who uses technology in a safe, kind and responsible way" },
+        { "word": "device", "meaning": "a tool like an iPad, a computer or a phone" },
+        { "word": "responsible", "meaning": "doing the right thing, even when no one is watching" }
+      ],
+      "activities": [
+        {
+          "id": "care", "type": "sort", "emoji": "🤲", "title": "iPad Care",
+          "intro": "Is it safe for your iPad? Sort each card into the right box.",
+          "bins": [
+            { "id": "yes", "emoji": "👍", "label": "Safe for my iPad" },
+            { "id": "no", "emoji": "👎", "label": "Not safe" }
+          ],
+          "cards": [
+            { "emoji": "🤲", "text": "Carry it with two hands", "bin": "yes", "why": "Two hands keep it from falling." },
+            { "emoji": "🏃", "text": "Run with your iPad", "bin": "no", "why": "We walk with our iPads so we don't trip." },
+            { "emoji": "🥤", "text": "Put your drink right next to it", "bin": "no", "why": "Spills can break an iPad. Keep drinks far away." },
+            { "emoji": "🔋", "text": "Plug it in when your teacher says", "bin": "yes", "why": "A charged iPad is ready to learn." },
+            { "emoji": "✏️", "text": "Tap the screen with a pencil", "bin": "no", "why": "Pencils can scratch the screen. Use your finger." },
+            { "emoji": "🧑‍🏫", "text": "Tell a teacher if it breaks", "bin": "yes", "why": "Telling right away is the responsible thing to do." },
+            { "emoji": "🎒", "text": "Toss it in your backpack", "bin": "no", "why": "Tossing can crack it. Set it down gently." },
+            { "emoji": "📲", "text": "Use the apps your teacher picks", "bin": "yes", "why": "That keeps us safe and learning." }
+          ]
+        },
+        {
+          "id": "rules", "type": "scenario", "emoji": "🤔", "title": "What Would You Do?",
+          "intro": "Read each story. What is the responsible thing to do?",
+          "items": [
+            {
+              "emoji": "⏰", "text": "You finish your iPad work early. What do you do?",
+              "choices": [
+                { "text": "Open any game I want", "good": false, "feedback": "Let's check with the teacher first. They may have a job for you." },
+                { "text": "Ask the teacher what to do next", "good": true, "feedback": "Yes! Asking is the responsible choice." }
+              ]
+            },
+            {
+              "emoji": "👀", "text": "Your friend's iPad is open on their desk.",
+              "choices": [
+                { "text": "Ask before I touch it", "good": true, "feedback": "Yes! We always ask first." },
+                { "text": "Look at what they are doing", "good": false, "feedback": "That is their iPad. Ask before you touch or look." }
+              ]
+            },
+            {
+              "emoji": "🪙", "text": "A game asks you to buy more coins.",
+              "choices": [
+                { "text": "Tap buy", "good": false, "feedback": "Buying costs real money. Stop and ask a grown-up." },
+                { "text": "Stop and ask a grown-up", "good": true, "feedback": "Yes! Always ask a grown-up before buying anything." }
+              ]
+            },
+            {
+              "emoji": "💥", "text": "Oops! You drop your iPad and the screen cracks.",
+              "choices": [
+                { "text": "Hide it so no one sees", "good": false, "feedback": "Hiding it makes it worse. Telling the truth is the brave choice." },
+                { "text": "Tell the teacher right away", "good": true, "feedback": "Yes! Accidents happen. Telling right away is responsible." }
+              ]
+            },
+            {
+              "emoji": "🪫", "text": "Your iPad battery is almost empty.",
+              "choices": [
+                { "text": "Tell the teacher it needs charging", "good": true, "feedback": "Yes! Then it will be ready next time." },
+                { "text": "Keep using it until it turns off", "good": false, "feedback": "Then your work might not save. Tell the teacher." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "worlds", "type": "match", "emoji": "🌍", "title": "Real World, Online World",
+          "intro": "Good citizens follow rules in the real world and online. Match each real world rule to its online rule.",
+          "pairs": [
+            { "left": { "emoji": "🚦", "text": "Stop and look before you cross the street" }, "right": { "emoji": "✋", "text": "Stop and think before you tap" } },
+            { "left": { "emoji": "🔑", "text": "Lock your front door" }, "right": { "emoji": "🔒", "text": "Keep your password secret" } },
+            { "left": { "emoji": "🛝", "text": "Use kind words at recess" }, "right": { "emoji": "💬", "text": "Use kind words in messages" } },
+            { "left": { "emoji": "🙋", "text": "Ask before you borrow a toy" }, "right": { "emoji": "📷", "text": "Ask before you share a friend's photo" } }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 2, "emoji": "⚖️", "color": "#43A047",
+      "title": "Screen Time, Green Time",
+      "kidTitle": "Screen Time, Green Time",
+      "bigIdea": "Screens can be fun and helpful, but our bodies and brains need a balance of screen time and green time.",
+      "words": [
+        { "word": "screen time", "meaning": "time spent using a device like an iPad, TV or phone" },
+        { "word": "green time", "meaning": "time spent away from screens, like playing outside or reading a book" },
+        { "word": "balance", "meaning": "a good mix, so we don't do too much of one thing" }
+      ],
+      "activities": [
+        {
+          "id": "screengreen", "type": "sort", "emoji": "🌳", "title": "Screen or Green?",
+          "intro": "Is it screen time or green time? Sort each card.",
+          "bins": [
+            { "id": "screen", "emoji": "📱", "label": "Screen time" },
+            { "id": "green", "emoji": "🌳", "label": "Green time" }
+          ],
+          "cards": [
+            { "emoji": "📺", "text": "Watch a show", "bin": "screen", "why": "A TV show is screen time." },
+            { "emoji": "🚲", "text": "Ride a bike", "bin": "green", "why": "Riding a bike is green time." },
+            { "emoji": "📖", "text": "Read a paper book", "bin": "green", "why": "A paper book is green time." },
+            { "emoji": "🎮", "text": "Play a video game", "bin": "screen", "why": "Video games are screen time." },
+            { "emoji": "👵", "text": "Video chat with Grandma", "bin": "screen", "why": "Video chat is screen time, and a great way to connect." },
+            { "emoji": "🖍️", "text": "Draw with crayons", "bin": "green", "why": "Crayons are green time." },
+            { "emoji": "🧱", "text": "Build with blocks", "bin": "green", "why": "Building with blocks is green time." },
+            { "emoji": "🍳", "text": "Help cook dinner", "bin": "green", "why": "Cooking together is green time." }
+          ]
+        },
+        {
+          "id": "balance", "type": "balance", "emoji": "⚖️", "title": "Balance My Day",
+          "intro": "Plan an afternoon! Put an activity in each of the six spots. Try to make a balanced day with more green time than screen time.",
+          "goodSay": "Great balance! You have time for screens and lots of green time too.",
+          "tooMuchSay": "That is a lot of screen time. Try swapping one for green time.",
+          "noScreenSay": "Lots of green time! A little screen time is OK too. This day is balanced.",
+          "activities": [
+            { "emoji": "🎮", "text": "Video game", "kind": "screen" },
+            { "emoji": "📺", "text": "TV show", "kind": "screen" },
+            { "emoji": "📱", "text": "iPad app", "kind": "screen" },
+            { "emoji": "👵", "text": "Video call", "kind": "screen" },
+            { "emoji": "⚽", "text": "Play soccer", "kind": "green" },
+            { "emoji": "📖", "text": "Read a book", "kind": "green" },
+            { "emoji": "🎨", "text": "Paint a picture", "kind": "green" },
+            { "emoji": "🐕", "text": "Walk the dog", "kind": "green" },
+            { "emoji": "🧩", "text": "Do a puzzle", "kind": "green" },
+            { "emoji": "🍪", "text": "Bake cookies", "kind": "green" }
+          ]
+        },
+        {
+          "id": "feelings", "type": "scenario", "emoji": "😊", "title": "How Does It Feel?",
+          "intro": "Our bodies tell us when we need a break. What is the best choice?",
+          "items": [
+            {
+              "emoji": "😵‍💫", "text": "You have watched videos for a long time. Your eyes feel tired.",
+              "choices": [
+                { "text": "Watch one more video", "good": false, "feedback": "Tired eyes mean it is time for a break." },
+                { "text": "Take a break and stretch", "good": true, "feedback": "Yes! Listen to your body and take a break." }
+              ]
+            },
+            {
+              "emoji": "📺", "text": "Your grown-up says screen time is over.",
+              "choices": [
+                { "text": "Turn it off and find something else to do", "good": true, "feedback": "Yes! Stopping when it is time is a super skill." },
+                { "text": "Cry and beg for more", "good": false, "feedback": "It is hard to stop. Take a deep breath and turn it off." }
+              ]
+            },
+            {
+              "emoji": "⚽", "text": "Your friend wants to play outside, but you are playing a game.",
+              "choices": [
+                { "text": "Pause the game and go play", "good": true, "feedback": "Yes! Friends and fresh air are great green time." },
+                { "text": "Say no and keep playing", "good": false, "feedback": "The game can wait. Playing with a friend is good for you." }
+              ]
+            },
+            {
+              "emoji": "😠", "text": "You feel grumpy after playing a game.",
+              "choices": [
+                { "text": "Take a break and talk about it", "good": true, "feedback": "Yes! Noticing your feelings is smart." },
+                { "text": "Keep playing even though you feel grumpy", "good": false, "feedback": "Grumpy feelings are a sign to take a break." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 3, "emoji": "🔒", "color": "#8E24AA",
+      "title": "Private and Personal",
+      "kidTitle": "Keep It Private",
+      "bigIdea": "Some information is private. We keep it safe and only share it with grown-ups we trust.",
+      "words": [
+        { "word": "private information", "meaning": "facts about you that strangers should not know, like your address or password" },
+        { "word": "password", "meaning": "a secret word that keeps your account safe" },
+        { "word": "trusted adult", "meaning": "a grown-up who keeps you safe, like a parent or teacher" }
+      ],
+      "activities": [
+        {
+          "id": "private", "type": "sort", "emoji": "🔒", "title": "Private or OK to Share?",
+          "intro": "Some things are private. Some things are OK to share. Sort each card.",
+          "bins": [
+            { "id": "private", "emoji": "🔒", "label": "Private" },
+            { "id": "share", "emoji": "😊", "label": "OK to share" }
+          ],
+          "cards": [
+            { "emoji": "🏠", "text": "My home address", "bin": "private", "why": "Your address is private. Keep it safe." },
+            { "emoji": "🎨", "text": "My favorite color", "bin": "share", "why": "Your favorite color is OK to share." },
+            { "emoji": "🔑", "text": "My password", "bin": "private", "why": "Passwords are always private." },
+            { "emoji": "☎️", "text": "My phone number", "bin": "private", "why": "Your phone number is private." },
+            { "emoji": "🐧", "text": "My favorite animal", "bin": "share", "why": "Your favorite animal is OK to share." },
+            { "emoji": "🎂", "text": "My birthday", "bin": "private", "why": "Your birthday is private online." },
+            { "emoji": "📚", "text": "A book I liked", "bin": "share", "why": "Sharing a book you liked is OK." },
+            { "emoji": "🏫", "text": "The name of my school", "bin": "private", "why": "Your school's name is private online." }
+          ]
+        },
+        {
+          "id": "password", "type": "password", "emoji": "🔑", "title": "Super Password Maker",
+          "rows": [
+            ["Purple", "Fuzzy", "Sneaky", "Giant", "Silly", "Sparkly"],
+            ["Llama", "Penguin", "Dragon", "Turtle", "Octopus", "Lynx"],
+            ["Pancake", "Rainbow", "Banana", "Rocket", "Pickle", "Tuba"]
+          ],
+          "numbers": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+          "symbols": ["!", "?", "#", "*"],
+          "quiz": {
+            "emoji": "🤫", "text": "Who can know your password?",
+            "choices": [
+              { "text": "My best friend", "good": false, "feedback": "Even best friends should not know your password." },
+              { "text": "My parent or trusted grown-up", "good": true, "feedback": "Yes! Only your trusted grown-ups." },
+              { "text": "Anyone who asks nicely", "good": false, "feedback": "No. Your password is a secret, even if someone asks nicely." }
+            ]
+          }
+        },
+        {
+          "id": "shouldshare", "type": "scenario", "emoji": "🛑", "title": "Should I Share?",
+          "intro": "Something online is asking for information. What should you do?",
+          "items": [
+            {
+              "emoji": "🎁", "text": "A pop-up says: Type your address to win a prize!",
+              "choices": [
+                { "text": "Type my address", "good": false, "feedback": "Your address is private. Prizes like this are tricks." },
+                { "text": "Close it and tell a grown-up", "good": true, "feedback": "Yes! Close it and tell a trusted adult." }
+              ]
+            },
+            {
+              "emoji": "💬", "text": "Someone you don't know sends a message: What school do you go to?",
+              "choices": [
+                { "text": "Don't answer. Tell a grown-up.", "good": true, "feedback": "Yes! Never tell strangers where you go to school." },
+                { "text": "Tell them my school", "good": false, "feedback": "Your school is private. Don't answer, and tell a grown-up." }
+              ]
+            },
+            {
+              "emoji": "🎮", "text": "A friend in a game asks for your password so they can help you.",
+              "choices": [
+                { "text": "Say no. Passwords are secret.", "good": true, "feedback": "Yes! Keep your password secret, even from friends." },
+                { "text": "Give it to them", "good": false, "feedback": "Passwords are only for you and your grown-ups." }
+              ]
+            },
+            {
+              "emoji": "🧑‍🏫", "text": "Your teacher asks you to log in to a school app with your password.",
+              "choices": [
+                { "text": "Type it in, and cover the screen", "good": true, "feedback": "Yes! Logging in for school is OK. Keep it covered." },
+                { "text": "Say it out loud to the class", "good": false, "feedback": "Keep it quiet. Type it in privately." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 4, "emoji": "💛", "color": "#F26B21",
+      "title": "Kind Words Online",
+      "kidTitle": "Kind Words Online",
+      "bigIdea": "Real people read our messages. We use kind words online, just like we do face to face.",
+      "words": [
+        { "word": "message", "meaning": "words you send to someone on a device" },
+        { "word": "kind", "meaning": "friendly, caring and helpful" },
+        { "word": "tone", "meaning": "how words sound and make someone feel" }
+      ],
+      "activities": [
+        {
+          "id": "kindsort", "type": "sort", "emoji": "💛", "title": "Kind or Unkind?",
+          "intro": "Read each message. Is it kind or unkind? Sort each card.",
+          "bins": [
+            { "id": "kind", "emoji": "💛", "label": "Kind" },
+            { "id": "unkind", "emoji": "💔", "label": "Unkind" }
+          ],
+          "cards": [
+            { "emoji": "🎨", "text": "Cool drawing!", "bin": "kind", "why": "That message would make a friend smile." },
+            { "emoji": "🐢", "text": "You are so slow.", "bin": "unkind", "why": "That message could hurt someone's feelings." },
+            { "emoji": "🤝", "text": "Want to play together?", "bin": "kind", "why": "Inviting someone is kind." },
+            { "emoji": "🙅", "text": "Nobody likes your game.", "bin": "unkind", "why": "That message is hurtful." },
+            { "emoji": "🎉", "text": "Great job on your project!", "bin": "kind", "why": "Cheering someone on is kind." },
+            { "emoji": "📢", "text": "WHY DID YOU DO THAT", "bin": "unkind", "why": "All capital letters can feel like yelling." },
+            { "emoji": "🙏", "text": "Thanks for helping me!", "bin": "kind", "why": "Saying thank you is kind." },
+            { "emoji": "😝", "text": "Ha ha, you messed up!", "bin": "unkind", "why": "Laughing at mistakes is unkind." }
+          ]
+        },
+        {
+          "id": "chat", "type": "chat", "emoji": "💬", "title": "Pick a Kind Reply",
+          "intro": "Your friend sent you a message. Pick the kindest reply.",
+          "items": [
+            {
+              "from": "🦊", "name": "Fox", "text": "I made a new video! Do you like it?",
+              "replies": [
+                { "text": "It's boring.", "good": false, "feedback": "That could hurt. Find something kind to say." },
+                { "text": "I liked the funny part! 😄", "good": true, "feedback": "Yes! Telling what you liked is kind." }
+              ],
+              "react": "Yay, thank you! 💛"
+            },
+            {
+              "from": "🐻", "name": "Bear", "text": "I lost the game. 😢",
+              "replies": [
+                { "text": "Good try! Want to play again?", "good": true, "feedback": "Yes! That helps your friend feel better." },
+                { "text": "Ha ha, I won!", "good": false, "feedback": "Bragging can make a friend feel worse." }
+              ],
+              "react": "OK, let's play! 😊"
+            },
+            {
+              "from": "🐰", "name": "Bunny", "text": "Can I join your team?",
+              "replies": [
+                { "text": "No. Go away.", "good": false, "feedback": "Leaving someone out hurts. Try a kinder reply." },
+                { "text": "Sure! We'd love to have you.", "good": true, "feedback": "Yes! Including others is kind." }
+              ],
+              "react": "Thank you! 🎉"
+            },
+            {
+              "from": "🐼", "name": "Panda", "text": "Oops, I messed up our project.",
+              "replies": [
+                { "text": "That's OK. Let's fix it together.", "good": true, "feedback": "Yes! Everyone makes mistakes." },
+                { "text": "You ruin everything.", "good": false, "feedback": "That is hurtful. Try a kind reply." }
+              ],
+              "react": "Thanks for being nice about it! 💛"
+            }
+          ]
+        },
+        {
+          "id": "thinksend", "type": "scenario", "emoji": "✋", "title": "Think Before You Send",
+          "intro": "Before you send a message, ask: Would I say this face to face? Is it kind?",
+          "items": [
+            {
+              "emoji": "📝", "text": "You want to send: Your drawing is weird.",
+              "choices": [
+                { "text": "Send it", "good": false, "feedback": "Would you say that face to face? Change it to something kind." },
+                { "text": "Change it to something kind", "good": true, "feedback": "Yes! Try: I like the colors in your drawing!" }
+              ]
+            },
+            {
+              "emoji": "😡", "text": "You feel angry and want to type a mean message.",
+              "choices": [
+                { "text": "Wait until I feel calm", "good": true, "feedback": "Yes! Take a breath. Never send a message when you're angry." },
+                { "text": "Send it right now", "good": false, "feedback": "Angry messages can hurt. Wait until you feel calm." }
+              ]
+            },
+            {
+              "emoji": "🎂", "text": "You want to send: Happy birthday! Have a great day!",
+              "choices": [
+                { "text": "Send it", "good": true, "feedback": "Yes! That is a kind message to send." },
+                { "text": "Don't send it", "good": false, "feedback": "This one is kind. It's great to send!" }
+              ]
+            },
+            {
+              "emoji": "🤫", "text": "Someone asks you to send a message saying something mean about a classmate.",
+              "choices": [
+                { "text": "Say no and tell a grown-up", "good": true, "feedback": "Yes! That's being an upstander." },
+                { "text": "Send it so they like me", "good": false, "feedback": "Being kind matters more. Say no, and tell a grown-up." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 5, "emoji": "🛑", "color": "#E53935",
+      "title": "Stop, Think, Tell",
+      "kidTitle": "Stop, Think, Tell",
+      "bigIdea": "When something online feels scary, strange or too good to be true, we stop, think, and tell a trusted adult.",
+      "words": [
+        { "word": "pop-up", "meaning": "a box that suddenly appears on the screen" },
+        { "word": "ad", "meaning": "something made to get you to buy, click or download" },
+        { "word": "stranger", "meaning": "someone you don't know in real life" }
+      ],
+      "activities": [
+        {
+          "id": "stoptell", "type": "scenario", "emoji": "🛑", "title": "Stop, Think, Tell",
+          "intro": "Something happens online. What should you do?",
+          "items": [
+            {
+              "emoji": "😱", "text": "A scary video starts playing.",
+              "choices": [
+                { "text": "Keep watching", "good": false, "feedback": "If something feels scary, stop. Close it and tell a grown-up." },
+                { "text": "Close it and tell a grown-up", "good": true, "feedback": "Yes! Stop, think, and tell." }
+              ]
+            },
+            {
+              "emoji": "🏆", "text": "A pop-up says: You won a free iPad! Tap here!",
+              "choices": [
+                { "text": "Tap it to get the prize", "good": false, "feedback": "If it sounds too good to be true, it's probably a trick." },
+                { "text": "Don't tap. Tell a grown-up.", "good": true, "feedback": "Yes! Free prize pop-ups are tricks." }
+              ]
+            },
+            {
+              "emoji": "👤", "text": "A stranger in a game says: Let's be friends. Where do you live?",
+              "choices": [
+                { "text": "Stop chatting and tell a grown-up", "good": true, "feedback": "Yes! Never tell a stranger where you live." },
+                { "text": "Tell them my street", "good": false, "feedback": "Your address is private. Stop and tell a grown-up." }
+              ]
+            },
+            {
+              "emoji": "⬇️", "text": "A game says: Download this to get more levels!",
+              "choices": [
+                { "text": "Ask a grown-up first", "good": true, "feedback": "Yes! Always ask before you download." },
+                { "text": "Download it", "good": false, "feedback": "Downloads can be tricky. Ask a grown-up first." }
+              ]
+            },
+            {
+              "emoji": "📸", "text": "Someone sends you a mean picture of a classmate.",
+              "choices": [
+                { "text": "Show it to friends", "good": false, "feedback": "Sharing it spreads the hurt. Tell a grown-up instead." },
+                { "text": "Don't share it. Tell a grown-up.", "good": true, "feedback": "Yes! That's what an upstander does." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ads", "type": "spot", "emoji": "🔍", "title": "Spot the Ads",
+          "intro": "This page is about penguins. Some boxes are ads trying to get you to click or buy. Tap every ad you can find.",
+          "pageTitle": "Penguin Facts for Kids",
+          "blocks": [
+            { "emoji": "🐧", "text": "Penguins are birds that cannot fly. They are great swimmers!", "ad": false },
+            { "emoji": "🎮", "text": "PLAY SUPER RACE NOW! Download free!", "ad": true, "why": "This ad wants you to download a game." },
+            { "emoji": "🧊", "text": "Emperor penguins live in Antarctica, where it is very cold.", "ad": false },
+            { "emoji": "🎁", "text": "You WON a prize! Tap here!", "ad": true, "why": "This ad is a trick. You didn't really win anything." },
+            { "emoji": "🐟", "text": "Penguins eat fish, squid and tiny shrimp called krill.", "ad": false },
+            { "emoji": "🥣", "text": "Buy Sugar Blast cereal! Kids love it!", "ad": true, "why": "This ad wants you to buy cereal." },
+            { "emoji": "🥚", "text": "Penguin dads keep the egg warm on their feet.", "ad": false },
+            { "emoji": "👟", "text": "Light-up shoes! Shop now and save!", "ad": true, "why": "This ad wants you to buy shoes." }
+          ]
+        },
+        {
+          "id": "trusted", "type": "sort", "emoji": "🧑‍🏫", "title": "Who Can I Tell?",
+          "intro": "When something online feels wrong, tell a trusted adult. Sort each card.",
+          "bins": [
+            { "id": "yes", "emoji": "✅", "label": "Trusted adult" },
+            { "id": "no", "emoji": "🚫", "label": "Not someone to tell" }
+          ],
+          "cards": [
+            { "emoji": "🧑‍🏫", "text": "My teacher", "bin": "yes", "why": "Your teacher is a trusted adult." },
+            { "emoji": "👨‍👩‍👧", "text": "My parent or grandparent", "bin": "yes", "why": "Your family grown-ups are trusted adults." },
+            { "emoji": "👤", "text": "A stranger in a game chat", "bin": "no", "why": "You don't know them. Tell a trusted adult instead." },
+            { "emoji": "📚", "text": "The school librarian", "bin": "yes", "why": "The librarian is a trusted adult." },
+            { "emoji": "💬", "text": "Someone who messaged me online", "bin": "no", "why": "You don't know who they really are." },
+            { "emoji": "🧑‍⚕️", "text": "The school counselor", "bin": "yes", "why": "The counselor is a trusted adult." },
+            { "emoji": "📹", "text": "A person in a video comment", "bin": "no", "why": "People in comments are strangers." }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 6, "emoji": "👣", "color": "#FFB300",
+      "title": "My Digital Footprint",
+      "kidTitle": "My Digital Footprint",
+      "bigIdea": "What we do online can stay there for a long time. We leave a footprint we can be proud of, and we stand up for others.",
+      "words": [
+        { "word": "digital footprint", "meaning": "the trail of things you do and share online" },
+        { "word": "upstander", "meaning": "someone who helps when another person is being treated unkindly" },
+        { "word": "pledge", "meaning": "a promise" }
+      ],
+      "activities": [
+        {
+          "id": "footprint", "type": "sort", "emoji": "👣", "title": "Footprint Check",
+          "intro": "Does it leave a footprint you are proud of? Sort each card.",
+          "bins": [
+            { "id": "proud", "emoji": "😊", "label": "Proud footprint" },
+            { "id": "oops", "emoji": "😬", "label": "Oops footprint" }
+          ],
+          "cards": [
+            { "emoji": "💛", "text": "Write a kind comment", "bin": "proud", "why": "Kind comments leave a proud footprint." },
+            { "emoji": "🤳", "text": "Post a silly photo of a friend without asking", "bin": "oops", "why": "Always ask before you share someone's photo." },
+            { "emoji": "🎨", "text": "Share your art with your class", "bin": "proud", "why": "Sharing your work is something to be proud of." },
+            { "emoji": "😠", "text": "Write a mean comment", "bin": "oops", "why": "Mean comments can stay online for a long time." },
+            { "emoji": "🏠", "text": "Post a picture that shows your address", "bin": "oops", "why": "That shares private information." },
+            { "emoji": "🙏", "text": "Thank someone for helping", "bin": "proud", "why": "Saying thank you leaves a proud footprint." }
+          ]
+        },
+        {
+          "id": "upstander", "type": "scenario", "emoji": "🦸", "title": "Be an Upstander",
+          "intro": "An upstander helps when someone is treated unkindly. What would an upstander do?",
+          "items": [
+            {
+              "emoji": "💬", "text": "Someone posts a mean comment about a classmate.",
+              "choices": [
+                { "text": "Laugh and add another comment", "good": false, "feedback": "That adds to the hurt. An upstander helps instead." },
+                { "text": "Tell a grown-up and be kind to my classmate", "good": true, "feedback": "Yes! That's what an upstander does." }
+              ]
+            },
+            {
+              "emoji": "🎮", "text": "Your friend is left out of an online game.",
+              "choices": [
+                { "text": "Invite them to play", "good": true, "feedback": "Yes! Including others is kind." },
+                { "text": "Keep playing without them", "good": false, "feedback": "How would it feel to be left out? Invite them." }
+              ]
+            },
+            {
+              "emoji": "😢", "text": "A classmate looks sad after reading a message.",
+              "choices": [
+                { "text": "Ask if they are OK", "good": true, "feedback": "Yes! Checking on a friend is kind." },
+                { "text": "Ignore it", "good": false, "feedback": "An upstander checks on friends who look sad." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pledge", "type": "pledge", "emoji": "✋", "title": "My Digital Citizen Pledge",
+          "intro": "Make your Digital Citizen Pledge! Tap at least three promises you will keep.",
+          "options": [
+            { "emoji": "🤲", "text": "I will take care of my device." },
+            { "emoji": "⚖️", "text": "I will balance screen time and green time." },
+            { "emoji": "🔒", "text": "I will keep private information private." },
+            { "emoji": "🔑", "text": "I will keep my password a secret." },
+            { "emoji": "💛", "text": "I will use kind words online." },
+            { "emoji": "🛑", "text": "I will stop, think and tell a trusted adult." },
+            { "emoji": "🙋", "text": "I will ask before I share someone's photo." },
+            { "emoji": "🦸", "text": "I will be an upstander." }
+          ]
+        },
+        {
+          "id": "certificate", "type": "certificate", "emoji": "🏆", "title": "My Certificate",
+          "intro": "Congratulations! You are a Lynx Digital Citizen!"
+        }
+      ]
+    }
+  ]
+}
