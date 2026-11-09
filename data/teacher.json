@@ -35,33 +35,41 @@
   "weeks": {
     "1": {
       "ican": "I can take care of my iPad and make responsible choices.",
-      "hook": "What does a good citizen do at school? Could you be a good citizen on an iPad too? (Week 1 has six hands-on activities, so it can stretch over two sessions.)",
+      "hook": "Hold up an iPad: How much do you think this cost? Who paid for it? What does a good citizen do with things the whole class shares? (Week 1 has eight activities, so it can stretch over two sessions.)",
       "discuss": [
         "What does it mean to be online?",
         "Which part of the iPad takes pictures? When is it OK to use it?",
         "What is one way you take care of our class iPads?",
         "What should the iPad look like when you hand it to the next friend?",
-        "How are online rules like real-world rules?"
+        "How are online rules like real-world rules?",
+        "Is fixing a cracked screen a good or a service? Who pays for it?",
+        "Why can’t we trade our turn on a class iPad?"
       ],
       "home": "Ask your child to show you how they carry an iPad safely, and talk about your family’s device rules.",
       "check": [
         "1A Handles shared iPads responsibly and leaves them ready for the next user",
-        "1B Explains what being online and a digital citizen mean"
-      ]
+        "1B Explains what being online and a digital citizen mean",
+        "1C Explains producers, consumers, goods and services using our class iPads"
+      ],
+      "pyp": "Fully integrated. Key concepts: Responsibility, Function. Students learn that the iPads were bought with real money and are a shared resource. They practise fair turn-taking as a kind of exchange and refuse to trade class iPad turns for a cookie. Care cards and Walk It to the Cart connect careless use to repair costs. Where Do iPads Come From? covers producers and consumers, goods and services, and opportunity cost (repair money can’t buy books). Learner profile: Principled."
     },
     "2": {
       "ican": "I can balance screen time and green time and notice how my body feels.",
-      "hook": "What is your favorite thing to do on a screen? What is your favorite thing to do without one?",
+      "hook": "If you had 6 coins to spend on your afternoon, what would you buy? What if the coins were hours of time?",
       "discuss": [
         "How does your body feel after a lot of screen time?",
         "What is a green time activity you love?",
-        "What can you do when it’s hard to stop?"
+        "What can you do when it’s hard to stop?",
+        "If you spend an hour on screens, what do you give up?",
+        "Why do some apps want you to keep watching?"
       ],
       "home": "Plan a balanced afternoon together using the Screen Time, Green Time idea.",
       "check": [
         "2A Sorts screen and green activities",
-        "2B Names a strategy for taking a break"
-      ]
+        "2B Names a strategy for taking a break",
+        "2C Plans a time budget that fits must-dos before wants"
+      ],
+      "pyp": "Fully integrated. Key concepts: Function, Causation. Time is treated as a currency: students spend 6 time coins in Spend My Time Coins and budget hours in Saturday Time Budget (must-dos vs wants, with an autoplay pop-up to stop). They learn that apps earn money from ads when we keep watching, and meet trade-offs (choosing games means giving up fort time). Learner profile: Balanced."
     },
     "3": {
       "ican": "I can tell what information is private and keep my password secret.",
@@ -70,13 +78,15 @@
         "What information should we never share online?",
         "What makes a password strong?",
         "Who are the people who can know your password?",
-        "Why don’t we save passwords on our class iPads?"
+        "Why don’t we save passwords on our class iPads?",
+        "If a game is free, what might the company want from you instead?"
       ],
       "home": "Talk about which family information is private, and who your child can tell if a website asks for it.",
       "check": [
         "3A Identifies private information",
         "3B Knows who may know their password"
-      ]
+      ],
+      "pyp": "Key concepts: Connection, Value. Personal information has value, and “free” apps often trade games for data. Money information is for grown-ups only. Learner profile: Principled."
     },
     "4": {
       "ican": "I can use kind words online, just like face to face.",
@@ -90,7 +100,8 @@
       "check": [
         "4A Tells kind from unkind messages",
         "4B Chooses a kind reply"
-      ]
+      ],
+      "pyp": "Key concept: Perspective. Trading in games is an exchange, so fair trades and kind “no thank yous” matter. Learner profile: Caring, Communicators."
     },
     "5": {
       "ican": "I can stop, think and tell a trusted adult when something online feels wrong.",
@@ -98,13 +109,15 @@
       "discuss": [
         "What are some things that should make us stop and think online?",
         "How can you tell if something is an ad?",
-        "Who are your trusted adults at school and at home?"
+        "Who are your trusted adults at school and at home?",
+        "What is the difference between a need and a want? How do ads try to make us want things?"
       ],
       "home": "Name your child’s trusted adults together, and practice “Stop, Think, Tell.”",
       "check": [
         "5A Uses Stop, Think, Tell",
         "5B Recognizes ads and pop-ups"
-      ]
+      ],
+      "pyp": "Key concepts: Function, Perspective. Needs vs. wants, how ads persuade, game coins cost real money, and budgeting in the Coin Shop. Learner profile: Thinkers."
     },
     "6": {
       "ican": "I can leave a digital footprint I am proud of and be an upstander.",
@@ -118,8 +131,10 @@
       "check": [
         "6A Explains digital footprint",
         "6B Makes a digital citizen pledge"
-      ]
+      ],
+      "pyp": "Key concept: Causation. Online shopping and browsing leave footprints that stores use to sell to us. Ask before buying anything. Learner profile: Reflective."
     }
   },
-  "checklistKey": "I = does it independently · H = does it with help · N = not yet"
+  "checklistKey": "I = does it independently · H = does it with help · N = not yet",
+  "pyp": "Connects to the PYP unit on Money and Exchange (How we organize ourselves). Throughout the six weeks, students meet the idea that online life runs on exchanges: we spend time like money, apps trade free games for our information, game coins cost real money, ads try to turn wants into needs, and fair trades are kind trades. Week 5’s Coin Shop has students buy a shopping list on a pretend-coin budget, avoid wants that break the budget, close a trick ad and ask a grown-up before paying."
 }

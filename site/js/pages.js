@@ -66,7 +66,8 @@ function teacherPage(mount) {
     h('div', { class: 'tp-head' }, h('a', { class: 'back-btn', href: '#/', 'aria-label': 'Home' }, '🏠'),
       h('div', null, h('h1', null, 'Teacher guide'), h('p', null, 'Second Grade Digital Citizenship · six weekly lessons on iPad'))),
     h('section', { class: 'tp-card' },
-      h('h2', null, 'Course overview'), h('p', null, T.overview), h('p', { class: 'tp-note' }, '📐 ' + T.standard)),
+      h('h2', null, 'Course overview'), h('p', null, T.overview), h('p', { class: 'tp-note' }, '📐 ' + T.standard),
+      h('p', { class: 'tp-note' }, '🌍 PYP link: ' + T.pyp)),
     h('section', { class: 'tp-card' },
       h('h2', null, 'Six weeks at a glance'),
       h('table', { class: 'tp-table' },
@@ -91,6 +92,7 @@ function teacherPage(mount) {
         h('p', null, h('b', null, 'Hook: '), t.hook),
         h('p', null, h('b', null, 'Activities: '), w.activities.map((a, i) => [i ? ' · ' : '', h('a', { href: '#/play/' + a.id }, a.title)])),
         h('div', null, h('b', null, 'Discussion questions:'), h('ul', null, t.discuss.map(q => h('li', null, q)))),
+        h('p', { class: 'tp-note' }, '🌍 PYP Money and Exchange: ' + t.pyp),
         h('p', { class: 'tp-note' }, '🏠 Home connection: ' + t.home),
         h('p', null, h('b', null, 'Checklist: '), t.check.join(' · ')));
     }),

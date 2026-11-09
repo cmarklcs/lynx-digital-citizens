@@ -94,9 +94,10 @@ function scenarioView(api, items, { intro, onDone }) {
 Engines.scenario = (api, act) => scenarioView(api, act.items, { intro: act.intro, onDone: () => api.win() });
 
 /* Learn It: a read-aloud picture story that teaches the week's idea, then one quick check question. */
+Engines.challenge = (api, act) => Engines.learn(api, act);
 Engines.learn = (api, act) => {
   let i = 0;
-  const total = act.slides.length + 1;
+  const total = act.slides.length + (act.check ? 1 : 0);
   const doneSlides = new Set();
   const wrap = h('div', { class: 'learn' });
   api.stage.append(wrap);
@@ -110,12 +111,13 @@ Engines.learn = (api, act) => {
       if (next.classList.contains('locked')) { wiggle(next); api.say(s.do.ask); return; }
       Sfx.tap(); i++;
       if (i < act.slides.length) show();
+      else if (!act.check) api.win(act.winSay);
       else { api.progress(total, total); wrap.remove(); scenarioView(api, [act.check], { intro: P.learnCheck, onDone: () => api.win() }); }
     });
     const card = h('div', { class: 'learn-card pop-in' + (s.do ? ' has-do' : '') },
       s.do ? null : h('div', { class: 'learn-emoji' }, s.emoji),
-      h('div', { class: 'learn-text' }, s.text),
-      speaker(s.do ? [s.text, s.do.ask] : s.text, 'corner'),
+      s.text ? h('div', { class: 'learn-text' }, s.text) : null,
+      speaker([s.text, s.do && s.do.ask].filter(Boolean), 'corner'),
       h('div', { class: 'learn-count' }, `${i + 1} / ${act.slides.length}`));
     if (s.do) {
       const idx = i;
@@ -277,7 +279,7 @@ Engines.balance = (api, act) => {
   const reset = h('button', { class: 'big-btn alt small', type: 'button' }, '↺ ' + P.clearBalance);
   reset.addEventListener('click', () => { plan.fill(null); render(); Voice.say(P.clearBalance); });
   api.stage.append(h('div', { class: 'balance' },
-    h('div', { class: 'day' }, h('div', { class: 'day-head' }, '🎒 After school', reset), h('div', { class: 'day-slots' }, slots)),
+    h('div', { class: 'day' }, h('div', { class: 'day-head' }, act.dayLabel || '🎒 After school', reset), h('div', { class: 'day-slots' }, slots)),
     scale,
     h('div', { class: 'tiles' }, tiles)));
   function add(a) {
