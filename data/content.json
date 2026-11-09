@@ -74,35 +74,53 @@
           "type": "learn",
           "emoji": "📖",
           "title": "Learn It: What Is Online?",
-          "intro": "Let's learn about being online! Listen, then do each job to unlock Next.",
+          "intro": "Let's learn about being online! Listen carefully, then solve each puzzle to unlock Next.",
           "slides": [
             {
               "emoji": "🌐",
               "text": "The internet connects computers and iPads all around the world.",
               "do": {
-                "kind": "tapAll",
-                "layout": "ring",
+                "kind": "pickMany",
                 "center": "🌐",
-                "ask": "Tap each device to connect it to the internet.",
+                "ask": "Which things can connect to the internet? Find all four.",
                 "items": [
                   {
                     "emoji": "💻",
-                    "label": "Laptop"
+                    "label": "Laptop",
+                    "good": true
                   },
                   {
                     "emoji": "📱",
-                    "label": "iPad"
+                    "label": "iPad",
+                    "good": true
                   },
                   {
                     "emoji": "📺",
-                    "label": "TV"
+                    "label": "Smart TV",
+                    "good": true
                   },
                   {
                     "emoji": "🎮",
-                    "label": "Game"
+                    "label": "Game console",
+                    "good": true
+                  },
+                  {
+                    "emoji": "🧸",
+                    "label": "Teddy bear",
+                    "say": "A teddy bear can't go online. Keep looking."
+                  },
+                  {
+                    "emoji": "📖",
+                    "label": "Paper book",
+                    "say": "A paper book can't go online. Keep looking."
+                  },
+                  {
+                    "emoji": "✏️",
+                    "label": "Pencil",
+                    "say": "A pencil can't go online. Keep looking."
                   }
                 ],
-                "done": "They are all connected to the internet!"
+                "done": "You found them all! They can all connect to the internet."
               }
             },
             {
@@ -111,12 +129,28 @@
               "do": {
                 "kind": "pickOne",
                 "layout": "switch",
-                "ask": "Tap the Wi-Fi button to go online.",
+                "ask": "Which button turns on the internet? Tap it.",
                 "items": [
+                  {
+                    "emoji": "🔋",
+                    "label": "Battery",
+                    "say": "That shows how much battery is left. Try again."
+                  },
                   {
                     "emoji": "📶",
                     "label": "Wi-Fi",
-                    "good": true
+                    "good": true,
+                    "say": "Yes! Wi-Fi connects the iPad to the internet."
+                  },
+                  {
+                    "emoji": "🔊",
+                    "label": "Volume",
+                    "say": "That makes the sound louder. Try again."
+                  },
+                  {
+                    "emoji": "📷",
+                    "label": "Camera",
+                    "say": "That takes pictures. Try again."
                   }
                 ],
                 "done": "Now this iPad is online!"
@@ -126,25 +160,43 @@
               "emoji": "🎥",
               "text": "Online, we can learn, watch videos, play games and talk to people far away.",
               "do": {
-                "kind": "tapAll",
-                "layout": "cards",
-                "ask": "Tap each card to see what we can do online.",
+                "kind": "pickMany",
+                "ask": "Which of these can we do online? Find all four.",
                 "items": [
                   {
                     "emoji": "📚",
-                    "label": "Learn"
+                    "label": "Look up facts",
+                    "good": true
                   },
                   {
                     "emoji": "🎥",
-                    "label": "Watch videos"
-                  },
-                  {
-                    "emoji": "🎮",
-                    "label": "Play games"
+                    "label": "Watch a video",
+                    "good": true
                   },
                   {
                     "emoji": "👵",
-                    "label": "Talk to family far away"
+                    "label": "Video call Grandma",
+                    "good": true
+                  },
+                  {
+                    "emoji": "🎮",
+                    "label": "Play a game",
+                    "good": true
+                  },
+                  {
+                    "emoji": "🏊",
+                    "label": "Swim in a pool",
+                    "say": "You can't swim online! Keep looking."
+                  },
+                  {
+                    "emoji": "🍎",
+                    "label": "Eat a snack",
+                    "say": "You can't eat a snack online! Keep looking."
+                  },
+                  {
+                    "emoji": "🛝",
+                    "label": "Go down a slide",
+                    "say": "Slides are at the playground, not online. Keep looking."
                   }
                 ],
                 "done": "So many things to do online!"
@@ -154,30 +206,29 @@
               "emoji": "🏙️",
               "text": "Being online is like visiting a giant city. Most places are fun and helpful. Some places are not for kids.",
               "do": {
-                "kind": "tapAll",
-                "layout": "doors",
-                "ask": "Tap each door to peek inside.",
+                "kind": "doorPick",
+                "ask": "Read the signs. Which place is not for kids? Tap that door.",
                 "items": [
                   {
                     "emoji": "📚",
-                    "label": "Library",
-                    "say": "A library. Fun and helpful!"
+                    "sign": "Kids Library",
+                    "say": "This is the kids library. Fun and helpful! Keep looking."
                   },
                   {
                     "emoji": "🔬",
-                    "label": "Science",
-                    "say": "A science museum. Fun and helpful!"
-                  },
-                  {
-                    "emoji": "🚫",
-                    "label": "Not for kids",
-                    "bad": true,
-                    "say": "Uh oh! This place is not for kids. Close the door and tell a grown-up."
+                    "sign": "Science for Kids",
+                    "say": "This is science for kids. Fun and helpful! Keep looking."
                   },
                   {
                     "emoji": "🎨",
-                    "label": "Art",
-                    "say": "An art studio. Fun and helpful!"
+                    "sign": "Art Studio",
+                    "say": "This is an art studio. Fun and helpful! Keep looking."
+                  },
+                  {
+                    "emoji": "🚫",
+                    "sign": "Grown-Ups Only",
+                    "good": true,
+                    "say": "You found it! This place is for grown-ups only. Close the door and tell a grown-up."
                   }
                 ],
                 "done": "Most places are great. If you find one that is not for kids, tell a grown-up."
@@ -187,49 +238,104 @@
               "emoji": "🚦",
               "text": "In a city, we follow safety rules. Online, we follow safety rules too.",
               "do": {
-                "kind": "pickOne",
-                "layout": "light",
-                "ask": "Which light means stop? Tap it.",
-                "items": [
+                "kind": "pairs",
+                "ask": "Tap a light, then tap what it means online.",
+                "pickFirst": "Tap a light first.",
+                "tryAgain": "Not that one. Think about what the light means.",
+                "pairs": [
                   {
-                    "emoji": "🔴",
-                    "label": "Red",
-                    "good": true,
-                    "say": "Yes! Red means stop. Online, we stop and think before we tap."
+                    "a": {
+                      "emoji": "🔴",
+                      "label": "Red"
+                    },
+                    "b": {
+                      "label": "Stop and think before you tap",
+                      "say": "Red means stop. Stop and think before you tap."
+                    }
                   },
                   {
-                    "emoji": "🟡",
-                    "label": "Yellow",
-                    "say": "Yellow means slow down. Which one means stop?"
+                    "a": {
+                      "emoji": "🟡",
+                      "label": "Yellow"
+                    },
+                    "b": {
+                      "label": "Slow down and ask a grown-up",
+                      "say": "Yellow means slow down. Ask a grown-up if you're not sure."
+                    }
                   },
                   {
-                    "emoji": "🟢",
-                    "label": "Green",
-                    "say": "Green means go. Which one means stop?"
+                    "a": {
+                      "emoji": "🟢",
+                      "label": "Green"
+                    },
+                    "b": {
+                      "label": "Go! It is safe and OK",
+                      "say": "Green means go. It is safe and OK."
+                    }
                   }
-                ]
+                ],
+                "done": "Stop, slow down, go. Those are your online traffic lights!"
               }
             },
             {
               "emoji": "🦸",
               "text": "A digital citizen is someone who is safe, kind and responsible online.",
               "do": {
-                "kind": "tapAll",
-                "layout": "collect",
-                "center": "🦸",
-                "ask": "Tap each badge to give it to the digital citizen.",
-                "items": [
+                "kind": "sortMini",
+                "ask": "Is it safe, kind, or responsible? Tap the right badge.",
+                "bins": [
                   {
+                    "id": "safe",
                     "emoji": "🛡️",
                     "label": "Safe"
                   },
                   {
+                    "id": "kind",
                     "emoji": "💛",
                     "label": "Kind"
                   },
                   {
+                    "id": "resp",
                     "emoji": "✅",
                     "label": "Responsible"
+                  }
+                ],
+                "items": [
+                  {
+                    "emoji": "🔑",
+                    "label": "Keep my password secret",
+                    "bin": "safe",
+                    "say": "Keeping a password secret keeps you safe. Try again."
+                  },
+                  {
+                    "emoji": "🙏",
+                    "label": "Say thank you in a message",
+                    "bin": "kind",
+                    "say": "Saying thank you is kind. Try again."
+                  },
+                  {
+                    "emoji": "🔋",
+                    "label": "Plug in the iPad when I'm done",
+                    "bin": "resp",
+                    "say": "Taking care of the iPad is responsible. Try again."
+                  },
+                  {
+                    "emoji": "🛑",
+                    "label": "Tell a grown-up about a scary video",
+                    "bin": "safe",
+                    "say": "Telling a grown-up keeps you safe. Try again."
+                  },
+                  {
+                    "emoji": "🤝",
+                    "label": "Ask a new friend to play",
+                    "bin": "kind",
+                    "say": "Including others is kind. Try again."
+                  },
+                  {
+                    "emoji": "🙋",
+                    "label": "Ask before I use an app",
+                    "bin": "resp",
+                    "say": "Asking first is responsible. Try again."
                   }
                 ],
                 "done": "Safe, kind and responsible. That's a digital citizen!"
@@ -239,30 +345,49 @@
               "emoji": "🤝",
               "text": "Our class shares iPads. We take care of them so they are ready for the next friend.",
               "do": {
-                "kind": "drag",
-                "ask": "Drag the iPad to the next friend.",
-                "item": "📱",
-                "from": "🧒",
-                "fromLabel": "Me",
-                "to": "👧",
-                "toLabel": "Next friend",
+                "kind": "order",
+                "ask": "How do we get the iPad ready for the next friend? Tap the steps in order.",
+                "wrongOrder": "Not yet. What comes first?",
+                "steps": [
+                  {
+                    "emoji": "💾",
+                    "label": "Save my work"
+                  },
+                  {
+                    "emoji": "⬆️",
+                    "label": "Close the apps"
+                  },
+                  {
+                    "emoji": "🛒",
+                    "label": "Put it in the cart"
+                  },
+                  {
+                    "emoji": "🔌",
+                    "label": "Plug it in"
+                  }
+                ],
                 "done": "Thank you! The iPad is ready for the next friend."
               }
             }
           ],
           "check": {
             "emoji": "🌐",
-            "text": "What does it mean to be online?",
+            "text": "Which one can NOT go online?",
             "choices": [
               {
-                "text": "My iPad is using the internet",
+                "text": "A paper book",
                 "good": true,
-                "feedback": "Yes! Online means using the internet."
+                "feedback": "Yes! A paper book can't connect to the internet."
               },
               {
-                "text": "My iPad is turned off",
+                "text": "An iPad",
                 "good": false,
-                "feedback": "Not quite. Online means your iPad is using the internet."
+                "feedback": "An iPad can go online with Wi-Fi. Which one can't?"
+              },
+              {
+                "text": "A smart TV",
+                "good": false,
+                "feedback": "A smart TV can go online. Which one can't?"
               }
             ]
           }
@@ -278,29 +403,36 @@
             {
               "id": "screen",
               "ask": "Tap the screen.",
-              "info": "The screen is glass. Touch it gently with one clean finger."
+              "info": "The screen is glass. Touch it gently with one clean finger.",
+              "clue": "Which part do you touch to use the apps?"
             },
             {
               "id": "camera",
               "ask": "Tap the camera.",
-              "info": "The camera takes pictures. Only take photos when your teacher says it's OK."
+              "info": "The camera takes pictures. Only take photos when your teacher says it's OK.",
+              "clue": "Which part takes pictures?"
             },
             {
               "id": "top",
               "ask": "Tap the top button.",
-              "info": "The top button turns the screen on and off."
+              "info": "The top button turns the screen on and off.",
+              "clue": "Which part turns the screen on and off?"
             },
             {
               "id": "volume",
               "ask": "Tap the volume buttons.",
-              "info": "The volume buttons make the sound louder or quieter."
+              "info": "The volume buttons make the sound louder or quieter.",
+              "clue": "Which part makes the sound louder?"
             },
             {
               "id": "port",
               "ask": "Tap the charging port.",
-              "info": "The charging port is where the charger goes. Push the plug in gently."
+              "info": "The charging port is where the charger goes. Push the plug in gently.",
+              "clue": "Which part does the charger go into?"
             }
-          ]
+          ],
+          "clueIntro": "Great! Now a harder round. Listen to the clue and tap the part.",
+          "clueRight": "You know your iPad!"
         },
         {
           "id": "care",
@@ -368,6 +500,30 @@
               "text": "Use the apps your teacher picks",
               "bin": "yes",
               "why": "That keeps us safe and learning."
+            },
+            {
+              "emoji": "🧻",
+              "text": "Clean the screen with a wet paper towel",
+              "bin": "no",
+              "why": "Water can get inside. Ask your teacher how to clean it."
+            },
+            {
+              "emoji": "🧑‍🤝‍🧑",
+              "text": "Hand it to a friend with two hands",
+              "bin": "yes",
+              "why": "Two hands for passing, too!"
+            },
+            {
+              "emoji": "🔊",
+              "text": "Turn the sound all the way up without headphones",
+              "bin": "no",
+              "why": "Loud sound bothers others. Use headphones."
+            },
+            {
+              "emoji": "⚙️",
+              "text": "Change the settings to make it yours",
+              "bin": "no",
+              "why": "Class iPads are shared. Only the teacher changes settings."
             }
           ]
         },
@@ -402,6 +558,16 @@
               "emoji": "🧃",
               "say": "Oops! Keep the iPad away from drinks."
             }
+          ],
+          "movers": [
+            {
+              "emoji": "⚽",
+              "say": "Oops! The ball rolled into you. Watch where it's going."
+            },
+            {
+              "emoji": "🚗",
+              "say": "Oops! Watch out for the toy car."
+            }
           ]
         },
         {
@@ -424,6 +590,11 @@
                   "text": "Ask the teacher what to do next",
                   "good": true,
                   "feedback": "Yes! Asking is the responsible choice."
+                },
+                {
+                  "text": "Watch a video on my own",
+                  "good": false,
+                  "feedback": "Ask first. Your teacher picks what is OK to watch."
                 }
               ]
             },
@@ -440,6 +611,11 @@
                   "text": "Delete it",
                   "good": false,
                   "feedback": "That is your friend's work. Leave it and tell the teacher."
+                },
+                {
+                  "text": "Open their work to see it",
+                  "good": false,
+                  "feedback": "That work belongs to your friend. Leave it and tell the teacher."
                 }
               ]
             },
@@ -456,6 +632,32 @@
                   "text": "Stop and ask a grown-up",
                   "good": true,
                   "feedback": "Yes! Always ask a grown-up before buying anything."
+                },
+                {
+                  "text": "Ask my friend to buy it",
+                  "good": false,
+                  "feedback": "Buying costs real money. Stop and ask a grown-up."
+                }
+              ]
+            },
+            {
+              "emoji": "📸",
+              "text": "Your friend says: Let's take silly photos of everyone with the class iPad!",
+              "choices": [
+                {
+                  "text": "Take photos of everyone",
+                  "good": false,
+                  "feedback": "Always ask people before taking their picture, and ask the teacher first."
+                },
+                {
+                  "text": "Say: Let's ask the teacher first",
+                  "good": true,
+                  "feedback": "Yes! The camera is for school work when the teacher says."
+                },
+                {
+                  "text": "Take just one photo",
+                  "good": false,
+                  "feedback": "Even one photo needs permission. Ask the teacher first."
                 }
               ]
             },
@@ -472,6 +674,11 @@
                   "text": "Tell the teacher right away",
                   "good": true,
                   "feedback": "Yes! Accidents happen. Telling right away is responsible."
+                },
+                {
+                  "text": "Put it back and say nothing",
+                  "good": false,
+                  "feedback": "The next friend might get hurt by the crack. Tell the teacher."
                 }
               ]
             },
@@ -488,6 +695,11 @@
                   "text": "Keep using it until it turns off",
                   "good": false,
                   "feedback": "Then your work might not save. Tell the teacher."
+                },
+                {
+                  "text": "Turn it off and put it away",
+                  "good": false,
+                  "feedback": "It still needs charging. Tell the teacher so it gets plugged in."
                 }
               ]
             },
@@ -504,6 +716,11 @@
                   "text": "Leave it on my desk",
                   "good": false,
                   "feedback": "Someone else needs it next. Put it back where it belongs."
+                },
+                {
+                  "text": "Leave it on for the next friend",
+                  "good": false,
+                  "feedback": "Close the apps and put it back carefully."
                 }
               ]
             }
@@ -518,7 +735,7 @@
           "closeApps": "First, close the apps. Swipe each app up and away.",
           "swipeHint": "Swipe it up to close it.",
           "appsClosed": "All the apps are closed!",
-          "findSpot": "Now drag the iPad to the spot in the cart with the same number.",
+          "findSpot": "Now drag the iPad to the spot in the cart with the same number. Look carefully!",
           "wrongSpot": "That is not the same number. Look at the number on the iPad.",
           "plugIn": "Last step! Drag the charger plug into the iPad.",
           "winSay": "The iPad is charging and ready for the next friend!",
@@ -586,6 +803,26 @@
               "right": {
                 "emoji": "📷",
                 "text": "Ask before you share a friend's photo"
+              }
+            },
+            {
+              "left": {
+                "emoji": "👋",
+                "text": "Don't go with a stranger"
+              },
+              "right": {
+                "emoji": "💬",
+                "text": "Don't chat with strangers online"
+              }
+            },
+            {
+              "left": {
+                "emoji": "🧹",
+                "text": "Clean up when you're done playing"
+              },
+              "right": {
+                "emoji": "📱",
+                "text": "Close your apps when you're done"
               }
             }
           ]

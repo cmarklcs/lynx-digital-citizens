@@ -3,7 +3,9 @@
 /* ---------- Meet the iPad: listen, then tap the part ---------- */
 Engines.parts = (api, act) => {
   const NAMES = { screen: 'Screen', camera: 'Camera', top: 'Top button', volume: 'Volume', port: 'Charging port' };
-  const order = shuffle(act.parts);
+  const names = shuffle(act.parts).map(p => ({ ...p, q: p.ask }));
+  const clues = shuffle(act.parts).map(p => ({ ...p, q: p.clue, clueRound: true }));
+  const order = names.concat(clues);
   let i = 0, busy = false;
   const spots = {};
   const spot = (id, ...kids) => {
@@ -23,30 +25,42 @@ Engines.parts = (api, act) => {
 
   function ask(first) {
     const p = order[i];
-    api.say(first ? [act.intro, p.ask] : p.ask, p.ask);
+    api.say(first ? [act.intro, p.q] : p.q, p.q);
   }
   function tap(id, b) {
     if (busy || i >= order.length) return;
     const p = order[i];
-    if (id !== p.id) { Sfx.oops(); wiggle(b); api.say([act.wrongSay, p.ask], p.ask); return; }
-    b.classList.add('found'); Sfx.good(); burst(b);
+    if (id !== p.id) { Sfx.oops(); wiggle(b); api.say([act.wrongSay, p.q], p.q); return; }
+    Sfx.good(); burst(b);
     i++; api.progress(i, order.length);
-    if (i < order.length) api.say([api.right(), p.info, order[i].ask], order[i].ask);
-    else { busy = true; api.say([api.right(), p.info], p.info); api.later(() => api.win(), 5200); }
+    if (i === names.length) {
+      // start the clue round: hide the name tags so kids must remember
+      b.classList.add('found');
+      busy = true;
+      api.say([api.right(), p.info, act.clueIntro, order[i].q], order[i].q);
+      api.later(() => { Object.values(spots).forEach(x => x.classList.remove('found')); ipad.classList.add('clue-round'); busy = false; }, 1200);
+      return;
+    }
+    b.classList.add('found');
+    if (i < order.length) api.say(p.clueRound ? [api.right(), order[i].q] : [api.right(), p.info, order[i].q], order[i].q);
+    else { busy = true; api.say([act.clueRight], act.clueRight); api.later(() => api.win(), 2200); }
   }
   ask(true);
 };
 
 /* ---------- Walk It to the Cart: drag slowly around things on the floor ---------- */
 Engines.carry = (api, act) => {
+  // [x%, y%, moves?]  moving things roll up and down
   const LEVELS = [
-    [[38, 30], [64, 72]],
-    [[30, 70], [50, 26], [70, 70]],
-    [[28, 20], [28, 84], [50, 52], [72, 18], [72, 84]]
+    [[35, 50], [65, 50]],
+    [[30, 50], [50, 18], [50, 82], [70, 50]],
+    [[25, 50], [42, 15], [42, 85], [58, 50, 1], [75, 25], [75, 75]],
+    [[22, 30], [22, 85], [38, 50, 1], [54, 15], [54, 85], [66, 50, 1], [80, 30], [80, 75]]
   ];
   const SPEED = 1.5;   // px per ms; faster than this is "running"
   const HIT = 52;      // px between centers that counts as bumping
-  let round = 0, done = false;
+  let round = 0, done = false, raf = 0;
+  api.cleanup(() => cancelAnimationFrame(raf));
   const field = h('div', { class: 'carry-field' });
   api.stage.append(field);
   api.progress(0, LEVELS.length);
@@ -55,9 +69,11 @@ Engines.carry = (api, act) => {
     const hz = shuffle(act.hazards);
     const desk = h('div', { class: 'carry-desk' }, '🪑');
     const cart = h('div', { class: 'carry-cart' }, h('span', null, '🛒'), h('b', null, 'Cart'));
-    const hazards = LEVELS[round].map(([x, y], k) => {
-      const el = h('div', { class: 'hazard', style: { left: x + '%', top: y + '%' } }, hz[k % hz.length].emoji);
-      el._say = hz[k % hz.length].say;
+    let mv = 0;
+    const hazards = LEVELS[round].map(([x, y, moves], k) => {
+      const d = moves ? act.movers[mv++ % act.movers.length] : hz[k % hz.length];
+      const el = h('div', { class: 'hazard' + (moves ? ' mover' : ''), style: { left: x + '%', top: y + '%' } }, d.emoji);
+      el._say = d.say; el._y = y; el._moves = moves; el._phase = Math.random() * 6;
       return el;
     });
     const pad = h('div', { class: 'carry-ipad', role: 'img', 'aria-label': 'iPad' }, '📱');
@@ -66,6 +82,15 @@ Engines.carry = (api, act) => {
     const put = (x, y) => { pad.style.left = x + 'px'; pad.style.top = y + 'px'; };
     put(home().x, home().y);
     if (first) api.say(act.intro);
+    let held = null;
+    const t0 = performance.now();
+    const tick = now => {
+      if (!field.isConnected || done) return;
+      for (const el of hazards) if (el._moves) el.style.top = (50 + 34 * Math.sin((now - t0) / 900 + el._phase)) + '%';
+      if (held) held();
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
 
     pad.addEventListener('pointerdown', e => {
       if (done) return;
@@ -80,7 +105,14 @@ Engines.carry = (api, act) => {
         window.removeEventListener('pointerup', stop);
         window.removeEventListener('pointercancel', stop);
         pad.classList.remove('held');
+        held = null;
       };
+      const hitCheck = () => {
+        const x = pad.offsetLeft, y = pad.offsetTop;
+        for (const el of hazards) if (Math.hypot(x - el.offsetLeft, y - el.offsetTop) < HIT) { fail(el._say, el); return true; }
+        return false;
+      };
+      held = hitCheck;
       const fail = (say, el) => {
         stop(); Sfx.oops(); if (el) wiggle(el);
         pad.classList.add('bump');
@@ -99,9 +131,7 @@ Engines.carry = (api, act) => {
         while (trail.length && now - trail[0].t > 160) trail.shift();
         const a = trail[0], dt = now - a.t;
         if (dt > 60 && Math.hypot(x - a.x, y - a.y) / dt > SPEED) return fail(act.tooFast);
-        for (const el of hazards) {
-          if (Math.hypot(x - el.offsetLeft, y - el.offsetTop) < HIT) return fail(el._say, el);
-        }
+        if (hitCheck()) return;
         const c = cart.getBoundingClientRect();
         if (ev.clientX > c.left && ev.clientX < c.right && ev.clientY > c.top && ev.clientY < c.bottom) {
           stop(); arrive(cart, pad);
@@ -113,7 +143,7 @@ Engines.carry = (api, act) => {
     });
   }
   function arrive(cart, pad) {
-    pad.remove(); cart.classList.add('full'); Sfx.good(); burst(cart, '💛');
+    cancelAnimationFrame(raf); pad.remove(); cart.classList.add('full'); Sfx.good(); burst(cart, '💛');
     round++; api.progress(round, LEVELS.length);
     if (round >= LEVELS.length) { done = true; api.win(act.winSay); return; }
     api.say([act.roundDone, act.nextRound], act.nextRound);
@@ -124,7 +154,11 @@ Engines.carry = (api, act) => {
 
 /* ---------- Ready for the Next Friend: close apps, find the numbered spot, plug in ---------- */
 Engines.handoff = (api, act) => {
-  const num = 1 + Math.floor(Math.random() * 6);
+  const num = 12 + Math.floor(Math.random() * 17);          // 12–28
+  const rev = +String(num).split('').reverse().join('');
+  const pool = new Set([num, num + 1, num - 1, num + 10, num - 10, rev].filter(n => n >= 10 && n <= 99));
+  while (pool.size < 12) pool.add(10 + Math.floor(Math.random() * 30));
+  const nums = [...pool].slice(0, 12).sort((a, b) => a - b);
   const wrap = h('div', { class: 'handoff' });
   api.stage.append(wrap);
   api.progress(0, 3);
@@ -168,8 +202,8 @@ Engines.handoff = (api, act) => {
   function spot() {
     api.progress(1, 3); Sfx.good();
     const pad = h('div', { class: 'ho-ipad' }, h('span', null, '📱'), h('b', null, num));
-    const filled = new Set(shuffle([1, 2, 3, 4, 5, 6].filter(n => n !== num)).slice(0, 3));
-    const slots = [1, 2, 3, 4, 5, 6].map(n => h('div', { class: 'slot' + (filled.has(n) ? ' taken' : ''), 'data-n': n },
+    const filled = new Set(shuffle(nums.filter(n => n !== num && n !== rev && Math.abs(n - num) !== 1)).slice(0, 5));
+    const slots = nums.map(n => h('div', { class: 'slot' + (filled.has(n) ? ' taken' : ''), 'data-n': n },
       h('b', null, n), filled.has(n) ? h('span', null, '📱') : null));
     const cart = h('div', { class: 'ho-cart' }, slots);
     wrap.replaceChildren(h('div', { class: 'ho-row' }, h('div', { class: 'ho-start' }, pad), cart));
@@ -211,3 +245,120 @@ Engines.handoff = (api, act) => {
   }
   apps(true);
 };
+
+/* ---------- harder Learn It jobs ---------- */
+Object.assign(LearnDo, {
+  /* find every right one; wrong ones explain why */
+  pickMany(d, api, finish) {
+    let left = d.items.filter(it => it.good).length;
+    const box = h('div', { class: 'do-box do-many' }, d.center ? h('div', { class: 'do-center' }, d.center) : null);
+    shuffle(d.items).forEach(it => {
+      const b = h('button', { class: 'do-item', type: 'button' }, h('span', { class: 'do-emoji' }, it.emoji), h('span', { class: 'do-label' }, it.label));
+      b.addEventListener('click', () => {
+        if (b.classList.contains('on') || b.disabled) return;
+        if (it.good) {
+          b.classList.add('on'); Sfx.good(); burst(b);
+          api.say(sayOf(it), d.ask);
+          if (--left === 0) setTimeout(finish, 1400);
+        } else {
+          b.classList.add('bad'); b.disabled = true; Sfx.oops(); wiggle(b);
+          api.say(it.say, d.ask);
+        }
+      });
+      box.append(b);
+    });
+    return box;
+  },
+  /* doors with signs: find the one place that is not for kids; wrong doors open to show a fun place */
+  doorPick(d, api, finish) {
+    const box = h('div', { class: 'do-box do-doors' });
+    let solved = false;
+    shuffle(d.items).forEach(it => {
+      const emo = h('span', { class: 'do-emoji' }, '🚪');
+      const b = h('button', { class: 'do-item', type: 'button' }, emo, h('span', { class: 'do-label sign' }, it.sign));
+      b.addEventListener('click', () => {
+        if (solved || b.classList.contains('on')) return;
+        emo.textContent = it.emoji; b.classList.add('on');
+        if (it.good) { solved = true; b.classList.add('bad'); Sfx.oops(); api.say(it.say, it.say); setTimeout(finish, 4200); }
+        else { Sfx.tap(); api.say(it.say, d.ask); }
+      });
+      box.append(b);
+    });
+    return box;
+  },
+  /* tap something on the left, then what it goes with on the right */
+  pairs(d, api, finish) {
+    let sel = null, left = d.pairs.length;
+    const L = h('div', { class: 'do-col' }), R = h('div', { class: 'do-col right' });
+    d.pairs.forEach((p, n) => {
+      const a = h('button', { class: 'do-item small', type: 'button' }, h('span', { class: 'do-emoji' }, p.a.emoji), h('span', { class: 'do-label' }, p.a.label));
+      a.dataset.n = n;
+      a.addEventListener('click', () => {
+        if (a.classList.contains('on')) return;
+        L.querySelectorAll('.sel').forEach(x => x.classList.remove('sel'));
+        a.classList.add('sel'); sel = a; Sfx.tap(); api.say(p.a.label, d.ask);
+      });
+      L.append(a);
+    });
+    shuffle(d.pairs.map((p, n) => ({ p, n }))).forEach(({ p, n }) => {
+      const b = h('button', { class: 'do-item small wide', type: 'button' }, h('span', { class: 'do-label' }, p.b.label));
+      b.addEventListener('click', () => {
+        if (b.classList.contains('on')) return;
+        if (!sel) { api.say([p.b.label, d.pickFirst], d.ask); return; }
+        if (+sel.dataset.n === n) {
+          sel.classList.remove('sel'); sel.classList.add('on', 'pair' + n); b.classList.add('on', 'pair' + n);
+          Sfx.good(); burst(b); api.say(p.b.say || p.b.label, d.ask); sel = null;
+          if (--left === 0) setTimeout(finish, 2200);
+        } else { Sfx.oops(); wiggle(b); api.say(d.tryAgain, d.ask); }
+      });
+      R.append(b);
+    });
+    return h('div', { class: 'do-box do-pairs' }, L, R);
+  },
+  /* one card at a time: tap the box it belongs in */
+  sortMini(d, api, finish) {
+    const items = shuffle(d.items);
+    let i = 0;
+    const card = h('div', { class: 'do-card' });
+    const bins = d.bins.map(bn => {
+      const b = h('button', { class: 'do-item mbin', type: 'button' }, h('span', { class: 'do-emoji' }, bn.emoji), h('span', { class: 'do-label' }, bn.label), h('span', { class: 'do-count' }));
+      b.addEventListener('click', () => {
+        const it = items[i];
+        if (!it) return;
+        if (it.bin === bn.id) {
+          Sfx.good(); burst(b); b.querySelector('.do-count').textContent += it.emoji;
+          i++;
+          if (i < items.length) { showCard(); api.say([api.right(), items[i].label], d.ask); }
+          else { card.replaceChildren(); card.classList.add('empty'); finish(); }
+        } else { Sfx.oops(); wiggle(card); api.say(it.say, d.ask); }
+      });
+      return b;
+    });
+    function showCard() {
+      const it = items[i];
+      card.replaceChildren(h('span', { class: 'do-emoji' }, it.emoji), h('span', null, it.label), speaker(it.label));
+      card.classList.remove('pop-in'); void card.offsetWidth; card.classList.add('pop-in');
+    }
+    showCard();
+    return h('div', { class: 'do-box do-sortmini' }, card, h('div', { class: 'do-bins' }, bins));
+  },
+  /* tap the steps in the right order */
+  order(d, api, finish) {
+    let next = 0;
+    const box = h('div', { class: 'do-box do-order' });
+    shuffle(d.steps.map((s, n) => ({ s, n }))).forEach(({ s, n }) => {
+      const num = h('span', { class: 'do-num' }, '?');
+      const b = h('button', { class: 'do-item', type: 'button' }, num, h('span', { class: 'do-emoji' }, s.emoji), h('span', { class: 'do-label' }, s.label));
+      b.addEventListener('click', () => {
+        if (b.classList.contains('on')) return;
+        if (n === next) {
+          next++; num.textContent = next; b.classList.add('on'); Sfx.good(); burst(b);
+          api.say(s.label, d.ask);
+          if (next === d.steps.length) setTimeout(finish, 1200);
+        } else { Sfx.oops(); wiggle(b); api.say(d.wrongOrder, d.ask); }
+      });
+      box.append(b);
+    });
+    return box;
+  }
+});
