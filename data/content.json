@@ -123,6 +123,41 @@
           }
         },
         {
+          "id": "parts",
+          "type": "parts",
+          "emoji": "🔍",
+          "title": "Meet the iPad",
+          "intro": "Let's meet the iPad! Listen, then tap the part.",
+          "wrongSay": "Not that part. Try again.",
+          "parts": [
+            {
+              "id": "screen",
+              "ask": "Tap the screen.",
+              "info": "The screen is glass. Touch it gently with one clean finger."
+            },
+            {
+              "id": "camera",
+              "ask": "Tap the camera.",
+              "info": "The camera takes pictures. Only take photos when your teacher says it's OK."
+            },
+            {
+              "id": "top",
+              "ask": "Tap the top button.",
+              "info": "The top button turns the screen on and off."
+            },
+            {
+              "id": "volume",
+              "ask": "Tap the volume buttons.",
+              "info": "The volume buttons make the sound louder or quieter."
+            },
+            {
+              "id": "port",
+              "ask": "Tap the charging port.",
+              "info": "The charging port is where the charger goes. Push the plug in gently."
+            }
+          ]
+        },
+        {
           "id": "care",
           "type": "sort",
           "emoji": "🤲",
@@ -188,6 +223,39 @@
               "text": "Use the apps your teacher picks",
               "bin": "yes",
               "why": "That keeps us safe and learning."
+            }
+          ]
+        },
+        {
+          "id": "carry",
+          "type": "carry",
+          "emoji": "🚶",
+          "title": "Walk It to the Cart",
+          "intro": "Drag the iPad to the cart. Walk slowly, and go around things on the floor.",
+          "tooFast": "Whoa! Walk, don't run with your iPad. Back to the start.",
+          "roundDone": "Safe in the cart!",
+          "nextRound": "Here comes another iPad. Walk it to the cart.",
+          "winSay": "You carried every iPad safely!",
+          "hazards": [
+            {
+              "emoji": "🥤",
+              "say": "Oops! Keep the iPad away from drinks."
+            },
+            {
+              "emoji": "🎒",
+              "say": "Oops! Don't trip on the backpack."
+            },
+            {
+              "emoji": "⚽",
+              "say": "Oops! Watch out for the ball."
+            },
+            {
+              "emoji": "🧱",
+              "say": "Oops! Watch out for blocks on the floor."
+            },
+            {
+              "emoji": "🧃",
+              "say": "Oops! Keep the iPad away from drinks."
             }
           ]
         },
@@ -293,6 +361,38 @@
                   "feedback": "Someone else needs it next. Put it back where it belongs."
                 }
               ]
+            }
+          ]
+        },
+        {
+          "id": "handoff",
+          "type": "handoff",
+          "emoji": "🤝",
+          "title": "Ready for the Next Friend",
+          "intro": "Your iPad time is over. Get the iPad ready for the next friend.",
+          "closeApps": "First, close the apps. Swipe each app up and away.",
+          "swipeHint": "Swipe it up to close it.",
+          "appsClosed": "All the apps are closed!",
+          "findSpot": "Now drag the iPad to the spot in the cart with the same number.",
+          "wrongSpot": "That is not the same number. Look at the number on the iPad.",
+          "plugIn": "Last step! Drag the charger plug into the iPad.",
+          "winSay": "The iPad is charging and ready for the next friend!",
+          "apps": [
+            {
+              "emoji": "🎨",
+              "text": "Draw"
+            },
+            {
+              "emoji": "📚",
+              "text": "Books"
+            },
+            {
+              "emoji": "🧮",
+              "text": "Math"
+            },
+            {
+              "emoji": "🎵",
+              "text": "Music"
             }
           ]
         },

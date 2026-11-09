@@ -1,5 +1,5 @@
 {
-  "overview": "Six weekly 30–40 minute lessons on digital citizenship for second graders using shared class iPads. No prior knowledge is assumed: each week opens with a Learn It picture story that explains the idea from scratch (what being online means, what private information is, what an ad is), followed by a quick check question. Students then practice with three iPad activities, and the lesson ends with a share-out. Every word on the student pages is read aloud in a recorded voice, so students who are still building reading skills can play independently with headphones.",
+  "overview": "Six weekly 30–40 minute lessons on digital citizenship for second graders using shared class iPads. No prior knowledge is assumed: each week opens with a Learn It picture story that explains the idea from scratch (what being online means, what private information is, what an ad is), followed by a quick check question. Students then practice with the week’s iPad activities, and the lesson ends with a share-out. Every word on the student pages is read aloud in a recorded voice, so students who are still building reading skills can play independently with headphones.",
   "standard": "Aligned to ISTE Student Standard 2 (Digital Citizen) and the K–2 themes taught in most digital citizenship programs: media balance, privacy, communication, safety and digital footprint.",
   "routine": [
     [
@@ -15,7 +15,7 @@
     [
       "15–30",
       "Practice",
-      "Students do Learn It on their own iPad, then the week’s three activities (headphones on). Circulate and ask “Why did you choose that?”"
+      "Students do Learn It on their own iPad, then the week’s activities (headphones on). Circulate and ask “Why did you choose that?”"
     ],
     [
       "30–40",
@@ -35,9 +35,10 @@
   "weeks": {
     "1": {
       "ican": "I can take care of my iPad and make responsible choices.",
-      "hook": "What does a good citizen do at school? Could you be a good citizen on an iPad too?",
+      "hook": "What does a good citizen do at school? Could you be a good citizen on an iPad too? (Week 1 has six hands-on activities, so it can stretch over two sessions.)",
       "discuss": [
         "What does it mean to be online?",
+        "Which part of the iPad takes pictures? When is it OK to use it?",
         "What is one way you take care of our class iPads?",
         "What should the iPad look like when you hand it to the next friend?",
         "How are online rules like real-world rules?"
