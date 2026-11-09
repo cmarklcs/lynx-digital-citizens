@@ -4,7 +4,7 @@ Six weeks of digital citizenship activities for Lausanne second graders on share
 
 | Week | Topic | Activities |
 |---|---|---|
-| 1 | My iPad, My Job | Learn It: What Is Online?, Meet the iPad (tap the parts), iPad Care (sort), Walk It to the Cart (drag maze), What Would You Do? (stories), Ready for the Next Friend (close apps, find the numbered cart spot, plug in), Real World, Online World (match) |
+| 1 | My iPad, My Job | Learn It: What Is Online? (hands-on: connect devices, turn on Wi-Fi, peek in doors, traffic light, hand the iPad on), Meet the iPad (tap the parts), iPad Care (sort), Walk It to the Cart (drag maze), What Would You Do? (stories), Ready for the Next Friend (close apps, find the numbered cart spot, plug in), Real World, Online World (match) |
 | 2 | Screen Time, Green Time | Learn It: What Is Screen Time?, Screen or Green? (sort), Balance My Day (planner), How Does It Feel? (stories) |
 | 3 | Keep It Private | Learn It: What Is Private?, Private or OK to Share? (sort), Super Password Maker, Should I Share? (stories) |
 | 4 | Kind Words Online | Learn It: Real People, Real Feelings, Kind or Unkind? (sort), Pick a Kind Reply (pretend chat), Think Before You Send (stories) |

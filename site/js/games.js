@@ -97,6 +97,7 @@ Engines.scenario = (api, act) => scenarioView(api, act.items, { intro: act.intro
 Engines.learn = (api, act) => {
   let i = 0;
   const total = act.slides.length + 1;
+  const doneSlides = new Set();
   const wrap = h('div', { class: 'learn' });
   api.stage.append(wrap);
   function show(first) {
@@ -106,21 +107,107 @@ Engines.learn = (api, act) => {
     back.disabled = i === 0;
     back.addEventListener('click', () => { if (i > 0) { i--; Sfx.tap(); show(); } });
     next.addEventListener('click', () => {
+      if (next.classList.contains('locked')) { wiggle(next); api.say(s.do.ask); return; }
       Sfx.tap(); i++;
       if (i < act.slides.length) show();
       else { api.progress(total, total); wrap.remove(); scenarioView(api, [act.check], { intro: P.learnCheck, onDone: () => api.win() }); }
     });
-    wrap.replaceChildren(
-      h('div', { class: 'learn-card pop-in' },
-        h('div', { class: 'learn-emoji' }, s.emoji),
-        h('div', { class: 'learn-text' }, s.text),
-        speaker(s.text, 'corner'),
-        h('div', { class: 'learn-count' }, `${i + 1} / ${act.slides.length}`)),
-      h('div', { class: 'learn-nav' }, back, next));
+    const card = h('div', { class: 'learn-card pop-in' + (s.do ? ' has-do' : '') },
+      s.do ? null : h('div', { class: 'learn-emoji' }, s.emoji),
+      h('div', { class: 'learn-text' }, s.text),
+      speaker(s.do ? [s.text, s.do.ask] : s.text, 'corner'),
+      h('div', { class: 'learn-count' }, `${i + 1} / ${act.slides.length}`));
+    if (s.do) {
+      const idx = i;
+      const finish = () => {
+        if (!card.isConnected || doneSlides.has(idx)) return;
+        doneSlides.add(idx);
+        next.classList.remove('locked'); next.classList.add('ready');
+        Sfx.good(); burst(next);
+        if (s.do.done) api.say(s.do.done, s.do.done);
+      };
+      if (!doneSlides.has(i)) next.classList.add('locked');
+      else next.classList.add('ready');
+      card.append(LearnDo[s.do.kind](s.do, api, finish));
+    }
+    wrap.replaceChildren(card, h('div', { class: 'learn-nav' }, back, next));
     api.progress(i + 1, total);
-    api.say(first ? [act.intro, s.text] : s.text, s.text);
+    const lines = [first ? act.intro : null, s.text, s.do ? s.do.ask : null].filter(Boolean);
+    api.say(lines, s.do ? s.do.ask : s.text);
   }
   show(true);
+};
+
+/* Hands-on actions inside a Learn It slide. Each calls finish() once the child has done it. */
+const sayOf = it => it.say || it.label;
+const LearnDo = {
+  /* tap every item; layout: ring (around a center), cards (flip to reveal), doors (peek inside), collect (fly to center) */
+  tapAll(d, api, finish) {
+    let left = d.items.length;
+    const center = d.center ? h('div', { class: 'do-center' }, d.center) : null;
+    const box = h('div', { class: 'do-box do-' + d.layout }, center);
+    d.items.forEach((it, n) => {
+      const hidden = d.layout === 'cards' || d.layout === 'doors';
+      const b = h('button', { class: 'do-item', type: 'button', style: { '--n': n, '--of': d.items.length } },
+        h('span', { class: 'do-emoji' }, hidden ? (d.layout === 'doors' ? '🚪' : '❓') : it.emoji),
+        h('span', { class: 'do-label' }, hidden ? '' : it.label));
+      b.addEventListener('click', () => {
+        api.say(sayOf(it), d.ask);
+        if (b.classList.contains('on')) return;
+        b.classList.add('on'); Sfx.tap(); burst(b, it.bad ? '❗' : '⭐');
+        if (hidden) { b.querySelector('.do-emoji').textContent = it.emoji; b.querySelector('.do-label').textContent = it.label; }
+        if (it.bad) b.classList.add('bad');
+        if (center) { center.classList.remove('pulse-once'); void center.offsetWidth; center.classList.add('pulse-once'); }
+        if (--left === 0) setTimeout(finish, it.say ? 3800 : 1500);
+      });
+      box.append(b);
+    });
+    if (d.layout === 'ring') box.prepend(h('div', { class: 'do-lines' }));
+    return box;
+  },
+  /* one right answer; layout: light (traffic light) or switch (Wi-Fi toggle on an iPad) */
+  pickOne(d, api, finish) {
+    const box = h('div', { class: 'do-box do-' + d.layout });
+    let screen = null;
+    if (d.layout === 'switch') {
+      screen = h('div', { class: 'do-screen' }, h('span', null, '😴'), h('b', null, 'Offline'));
+      box.append(screen);
+    }
+    let solved = false;
+    d.items.forEach(it => {
+      const b = h('button', { class: 'do-item', type: 'button' }, h('span', { class: 'do-emoji' }, it.emoji), h('span', { class: 'do-label' }, it.label));
+      b.addEventListener('click', () => {
+        if (solved) return;
+        if (it.good) {
+          solved = true; b.classList.add('on'); box.classList.add('solved');
+          if (screen) screen.replaceChildren(h('span', null, '🌐'), h('b', null, 'Online'));
+          api.say(sayOf(it), it.say || d.ask);
+          setTimeout(finish, it.say ? 2600 : 600);
+        } else { Sfx.oops(); wiggle(b); api.say(sayOf(it), d.ask); }
+      });
+      box.append(b);
+    });
+    return box;
+  },
+  /* drag one thing to a target */
+  drag(d, api, finish) {
+    const thing = h('div', { class: 'do-thing' }, d.item);
+    const target = h('div', { class: 'do-target' }, h('span', null, d.to), h('small', null, d.toLabel));
+    const box = h('div', { class: 'do-box do-drag' },
+      h('div', { class: 'do-from' }, h('span', null, d.from), h('small', null, d.fromLabel), thing),
+      h('div', { class: 'do-arrow' }, '➡'),
+      target);
+    makeDraggable(thing, {
+      onTap: () => api.say(d.ask),
+      onDrop: (x, y) => {
+        if (!hitTest(target, x, y, 30)) return false;
+        thing.remove(); target.append(h('div', { class: 'do-thing given' }, d.item)); target.classList.add('on');
+        finish();
+        return true;
+      }
+    });
+    return box;
+  }
 };
 
 /* ---------- match: pair each real-world card with its online card ---------- */

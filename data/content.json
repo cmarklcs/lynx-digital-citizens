@@ -74,35 +74,180 @@
           "type": "learn",
           "emoji": "📖",
           "title": "Learn It: What Is Online?",
-          "intro": "Listen to the story. Tap Next when you are ready.",
+          "intro": "Let's learn about being online! Listen, then do each job to unlock Next.",
           "slides": [
             {
               "emoji": "🌐",
-              "text": "The internet connects computers and iPads all around the world."
+              "text": "The internet connects computers and iPads all around the world.",
+              "do": {
+                "kind": "tapAll",
+                "layout": "ring",
+                "center": "🌐",
+                "ask": "Tap each device to connect it to the internet.",
+                "items": [
+                  {
+                    "emoji": "💻",
+                    "label": "Laptop"
+                  },
+                  {
+                    "emoji": "📱",
+                    "label": "iPad"
+                  },
+                  {
+                    "emoji": "📺",
+                    "label": "TV"
+                  },
+                  {
+                    "emoji": "🎮",
+                    "label": "Game"
+                  }
+                ],
+                "done": "They are all connected to the internet!"
+              }
             },
             {
               "emoji": "📱",
-              "text": "When your iPad uses the internet, you are online."
+              "text": "When your iPad uses the internet, you are online.",
+              "do": {
+                "kind": "pickOne",
+                "layout": "switch",
+                "ask": "Tap the Wi-Fi button to go online.",
+                "items": [
+                  {
+                    "emoji": "📶",
+                    "label": "Wi-Fi",
+                    "good": true
+                  }
+                ],
+                "done": "Now this iPad is online!"
+              }
             },
             {
               "emoji": "🎥",
-              "text": "Online, we can learn, watch videos, play games and talk to people far away."
+              "text": "Online, we can learn, watch videos, play games and talk to people far away.",
+              "do": {
+                "kind": "tapAll",
+                "layout": "cards",
+                "ask": "Tap each card to see what we can do online.",
+                "items": [
+                  {
+                    "emoji": "📚",
+                    "label": "Learn"
+                  },
+                  {
+                    "emoji": "🎥",
+                    "label": "Watch videos"
+                  },
+                  {
+                    "emoji": "🎮",
+                    "label": "Play games"
+                  },
+                  {
+                    "emoji": "👵",
+                    "label": "Talk to family far away"
+                  }
+                ],
+                "done": "So many things to do online!"
+              }
             },
             {
               "emoji": "🏙️",
-              "text": "Being online is like visiting a giant city. Most places are fun and helpful. Some places are not for kids."
+              "text": "Being online is like visiting a giant city. Most places are fun and helpful. Some places are not for kids.",
+              "do": {
+                "kind": "tapAll",
+                "layout": "doors",
+                "ask": "Tap each door to peek inside.",
+                "items": [
+                  {
+                    "emoji": "📚",
+                    "label": "Library",
+                    "say": "A library. Fun and helpful!"
+                  },
+                  {
+                    "emoji": "🔬",
+                    "label": "Science",
+                    "say": "A science museum. Fun and helpful!"
+                  },
+                  {
+                    "emoji": "🚫",
+                    "label": "Not for kids",
+                    "bad": true,
+                    "say": "Uh oh! This place is not for kids. Close the door and tell a grown-up."
+                  },
+                  {
+                    "emoji": "🎨",
+                    "label": "Art",
+                    "say": "An art studio. Fun and helpful!"
+                  }
+                ],
+                "done": "Most places are great. If you find one that is not for kids, tell a grown-up."
+              }
             },
             {
               "emoji": "🚦",
-              "text": "In a city, we follow safety rules. Online, we follow safety rules too."
+              "text": "In a city, we follow safety rules. Online, we follow safety rules too.",
+              "do": {
+                "kind": "pickOne",
+                "layout": "light",
+                "ask": "Which light means stop? Tap it.",
+                "items": [
+                  {
+                    "emoji": "🔴",
+                    "label": "Red",
+                    "good": true,
+                    "say": "Yes! Red means stop. Online, we stop and think before we tap."
+                  },
+                  {
+                    "emoji": "🟡",
+                    "label": "Yellow",
+                    "say": "Yellow means slow down. Which one means stop?"
+                  },
+                  {
+                    "emoji": "🟢",
+                    "label": "Green",
+                    "say": "Green means go. Which one means stop?"
+                  }
+                ]
+              }
             },
             {
               "emoji": "🦸",
-              "text": "A digital citizen is someone who is safe, kind and responsible online."
+              "text": "A digital citizen is someone who is safe, kind and responsible online.",
+              "do": {
+                "kind": "tapAll",
+                "layout": "collect",
+                "center": "🦸",
+                "ask": "Tap each badge to give it to the digital citizen.",
+                "items": [
+                  {
+                    "emoji": "🛡️",
+                    "label": "Safe"
+                  },
+                  {
+                    "emoji": "💛",
+                    "label": "Kind"
+                  },
+                  {
+                    "emoji": "✅",
+                    "label": "Responsible"
+                  }
+                ],
+                "done": "Safe, kind and responsible. That's a digital citizen!"
+              }
             },
             {
               "emoji": "🤝",
-              "text": "Our class shares iPads. We take care of them so they are ready for the next friend."
+              "text": "Our class shares iPads. We take care of them so they are ready for the next friend.",
+              "do": {
+                "kind": "drag",
+                "ask": "Drag the iPad to the next friend.",
+                "item": "📱",
+                "from": "🧒",
+                "fromLabel": "Me",
+                "to": "👧",
+                "toLabel": "Next friend",
+                "done": "Thank you! The iPad is ready for the next friend."
+              }
             }
           ],
           "check": {

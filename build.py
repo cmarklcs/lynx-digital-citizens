@@ -16,7 +16,7 @@ content = json.loads((ROOT / "data/content.json").read_text())
 teacher = json.loads((ROOT / "data/teacher.json").read_text())
 
 # Keys whose values are never spoken.
-SKIP = {"emoji", "id", "bin", "color", "type", "kind", "from", "numbers", "symbols"}
+SKIP = {"emoji", "id", "bin", "color", "type", "kind", "from", "to", "item", "center", "layout", "numbers", "symbols"}
 
 def spoken(node, key=None):
     if key in SKIP:
