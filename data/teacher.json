@@ -1,17 +1,34 @@
 {
-  "overview": "Six weekly 30–40 minute lessons on digital citizenship for second graders using iPads. Each week starts with a short class talk, then students play three iPad activities on their own or with a partner, and the lesson ends with a share-out. Every word on the student pages is read aloud in a recorded voice, so students who are still building reading skills can play independently with headphones.",
+  "overview": "Six weekly 30–40 minute lessons on digital citizenship for second graders using shared class iPads. No prior knowledge is assumed: each week opens with a Learn It picture story that explains the idea from scratch (what being online means, what private information is, what an ad is), followed by a quick check question. Students then practice with three iPad activities, and the lesson ends with a share-out. Every word on the student pages is read aloud in a recorded voice, so students who are still building reading skills can play independently with headphones.",
   "standard": "Aligned to ISTE Student Standard 2 (Digital Citizen) and the K–2 themes taught in most digital citizenship programs: media balance, privacy, communication, safety and digital footprint.",
   "routine": [
-    ["0–5", "Hook", "Show the week’s big idea and the three vocabulary words. Ask the opening question."],
-    ["5–15", "Teach", "Talk through one example from the activities together on the board, thinking out loud."],
-    ["15–30", "Practice", "Students play the week’s activities on their iPads (headphones on). Circulate and ask “Why did you choose that?”"],
-    ["30–40", "Share and reflect", "Use the discussion questions. Students share one thing they will do this week."]
+    [
+      "0–5",
+      "Hook",
+      "Ask the opening question and show the week’s three vocabulary words."
+    ],
+    [
+      "5–15",
+      "Learn It together",
+      "Play the week’s Learn It story on the projector. Pause on each picture and ask students what they notice. Do the quick check as a class."
+    ],
+    [
+      "15–30",
+      "Practice",
+      "Students do Learn It on their own iPad, then the week’s three activities (headphones on). Circulate and ask “Why did you choose that?”"
+    ],
+    [
+      "30–40",
+      "Share and reflect",
+      "Use the discussion questions. Students share one thing they will do this week."
+    ]
   ],
   "before": [
     "iPads charged, with headphones for every student",
     "Bookmark or add the site to each iPad’s Home Screen (Share ▸ Add to Home Screen)",
     "Test that sound plays on one iPad (check the silent switch and volume)",
-    "Projector or Apple TV ready to model activities",
+    "Projector or Apple TV ready to play the Learn It story together",
+    "Shared iPads: each student taps “New student” on the start screen if badges from someone else are showing. Badges also clear by themselves after an hour.",
     "Printed skills checklist (bottom of this page)",
     "Optional: send the home connection note each week"
   ],
@@ -19,44 +36,88 @@
     "1": {
       "ican": "I can take care of my iPad and make responsible choices.",
       "hook": "What does a good citizen do at school? Could you be a good citizen on an iPad too?",
-      "discuss": ["What is one way you take care of your iPad?", "Why is it important to ask before using someone else’s device?", "How are online rules like real-world rules?"],
+      "discuss": [
+        "What does it mean to be online?",
+        "What is one way you take care of our class iPads?",
+        "What should the iPad look like when you hand it to the next friend?",
+        "How are online rules like real-world rules?"
+      ],
       "home": "Ask your child to show you how they carry an iPad safely, and talk about your family’s device rules.",
-      "check": ["1A Handles the iPad responsibly", "1B Explains what a digital citizen is"]
+      "check": [
+        "1A Handles shared iPads responsibly and leaves them ready for the next user",
+        "1B Explains what being online and a digital citizen mean"
+      ]
     },
     "2": {
       "ican": "I can balance screen time and green time and notice how my body feels.",
       "hook": "What is your favorite thing to do on a screen? What is your favorite thing to do without one?",
-      "discuss": ["How does your body feel after a lot of screen time?", "What is a green time activity you love?", "What can you do when it’s hard to stop?"],
+      "discuss": [
+        "How does your body feel after a lot of screen time?",
+        "What is a green time activity you love?",
+        "What can you do when it’s hard to stop?"
+      ],
       "home": "Plan a balanced afternoon together using the Screen Time, Green Time idea.",
-      "check": ["2A Sorts screen and green activities", "2B Names a strategy for taking a break"]
+      "check": [
+        "2A Sorts screen and green activities",
+        "2B Names a strategy for taking a break"
+      ]
     },
     "3": {
       "ican": "I can tell what information is private and keep my password secret.",
       "hook": "What would you keep in a treasure box? Private information is like treasure.",
-      "discuss": ["What information should we never share online?", "What makes a password strong?", "Who are the people who can know your password?"],
+      "discuss": [
+        "What information should we never share online?",
+        "What makes a password strong?",
+        "Who are the people who can know your password?",
+        "Why don’t we save passwords on our class iPads?"
+      ],
       "home": "Talk about which family information is private, and who your child can tell if a website asks for it.",
-      "check": ["3A Identifies private information", "3B Knows who may know their password"]
+      "check": [
+        "3A Identifies private information",
+        "3B Knows who may know their password"
+      ]
     },
     "4": {
       "ican": "I can use kind words online, just like face to face.",
       "hook": "How can you tell if someone is happy or upset in a message when you can’t see their face?",
-      "discuss": ["Why can messages be easy to misunderstand?", "What can you do before you send a message?", "What is a kind reply when a friend makes a mistake?"],
+      "discuss": [
+        "Why can messages be easy to misunderstand?",
+        "What can you do before you send a message?",
+        "What is a kind reply when a friend makes a mistake?"
+      ],
       "home": "Write a kind message together to a family member or friend.",
-      "check": ["4A Tells kind from unkind messages", "4B Chooses a kind reply"]
+      "check": [
+        "4A Tells kind from unkind messages",
+        "4B Chooses a kind reply"
+      ]
     },
     "5": {
       "ican": "I can stop, think and tell a trusted adult when something online feels wrong.",
       "hook": "Have you ever seen a pop-up that said you won something? What did you do?",
-      "discuss": ["What are some things that should make us stop and think online?", "How can you tell if something is an ad?", "Who are your trusted adults at school and at home?"],
+      "discuss": [
+        "What are some things that should make us stop and think online?",
+        "How can you tell if something is an ad?",
+        "Who are your trusted adults at school and at home?"
+      ],
       "home": "Name your child’s trusted adults together, and practice “Stop, Think, Tell.”",
-      "check": ["5A Uses Stop, Think, Tell", "5B Recognizes ads and pop-ups"]
+      "check": [
+        "5A Uses Stop, Think, Tell",
+        "5B Recognizes ads and pop-ups"
+      ]
     },
     "6": {
       "ican": "I can leave a digital footprint I am proud of and be an upstander.",
       "hook": "What kind of footprints do you leave when you walk in the snow or sand? What footprints do you leave online?",
-      "discuss": ["What is a footprint you would be proud of?", "What can an upstander do?", "Which pledge promise is most important to you, and why?"],
+      "discuss": [
+        "What is a footprint you would be proud of?",
+        "What can an upstander do?",
+        "Which pledge promise is most important to you, and why?"
+      ],
       "home": "Hang up your child’s Digital Citizen certificate and talk about the promises they chose.",
-      "check": ["6A Explains digital footprint", "6B Makes a digital citizen pledge"]
+      "check": [
+        "6A Explains digital footprint",
+        "6B Makes a digital citizen pledge"
+      ]
     }
   },
   "checklistKey": "I = does it independently · H = does it with help · N = not yet"

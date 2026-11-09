@@ -59,8 +59,8 @@ function teacherPage(mount) {
   const allCodes = CONTENT.weeks.flatMap(w => T.weeks[w.n].check.map(c => c.split(' ')[0]));
   const printList = h('button', { class: 'tp-btn', type: 'button' }, '🖨️ Print skills checklist');
   printList.addEventListener('click', () => { document.body.classList.add('print-checklist'); window.print(); setTimeout(() => document.body.classList.remove('print-checklist'), 500); });
-  const reset = h('button', { class: 'tp-btn warn', type: 'button' }, 'Reset badges on this iPad');
-  reset.addEventListener('click', () => { if (confirm('Clear all badges, the pledge and the saved name on this iPad?')) { Progress.reset(); Store.remove('name'); Store.remove('pledge'); App.route(); } });
+  const reset = h('button', { class: 'tp-btn warn', type: 'button' }, 'Clear badges on this iPad');
+  reset.addEventListener('click', () => { if (confirm('Clear the badges on this iPad?')) { Progress.reset(); App.route(); } });
 
   mount.append(h('div', { class: 'teacher' },
     h('div', { class: 'tp-head' }, h('a', { class: 'back-btn', href: '#/', 'aria-label': 'Home' }, '🏠'),
@@ -96,7 +96,7 @@ function teacherPage(mount) {
     }),
     h('section', { class: 'tp-card' },
       h('h2', null, 'This iPad'),
-      h('p', null, `Badges and the student’s pledge are saved in Safari on each iPad, not online. Badges here: 🏅 ${Progress.count()}.`),
+      h('p', null, `Class iPads are shared, so badges only last for one student’s lesson. They clear by themselves after an hour with no play, or when a student taps “New student” on the start screen. Names are never saved, and nothing is sent online. Badges on this iPad right now: 🏅 ${Progress.count()}.`),
       reset),
     h('section', { class: 'tp-card checklist' },
       h('div', { class: 'tp-row' }, h('h2', null, 'Skills checklist'), printList),
@@ -136,7 +136,10 @@ updateBadgeCount();
 
 /* iPads need one tap before any sound can play, so the first screen is a big start button. */
 const start = document.getElementById('start');
-start.querySelector('button').addEventListener('click', () => {
+const fresh = start.querySelector('.start-new');
+if (Progress.count()) fresh.classList.remove('hidden');
+fresh.addEventListener('click', () => { Progress.reset(); fresh.textContent = '✓ 🏅 0'; Voice.unlock(); Voice.say(P.freshStart); });
+start.querySelector('.start-btn').addEventListener('click', () => {
   Voice.unlock();
   start.remove();
   App.route();

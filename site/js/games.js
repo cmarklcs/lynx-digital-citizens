@@ -93,6 +93,36 @@ function scenarioView(api, items, { intro, onDone }) {
 }
 Engines.scenario = (api, act) => scenarioView(api, act.items, { intro: act.intro, onDone: () => api.win() });
 
+/* Learn It: a read-aloud picture story that teaches the week's idea, then one quick check question. */
+Engines.learn = (api, act) => {
+  let i = 0;
+  const total = act.slides.length + 1;
+  const wrap = h('div', { class: 'learn' });
+  api.stage.append(wrap);
+  function show(first) {
+    const s = act.slides[i];
+    const back = h('button', { class: 'big-btn alt', type: 'button', 'aria-label': P.learnBack }, '⬅');
+    const next = h('button', { class: 'big-btn go', type: 'button' }, P.learnNext + ' ➡');
+    back.disabled = i === 0;
+    back.addEventListener('click', () => { if (i > 0) { i--; Sfx.tap(); show(); } });
+    next.addEventListener('click', () => {
+      Sfx.tap(); i++;
+      if (i < act.slides.length) show();
+      else { api.progress(total, total); wrap.remove(); scenarioView(api, [act.check], { intro: P.learnCheck, onDone: () => api.win() }); }
+    });
+    wrap.replaceChildren(
+      h('div', { class: 'learn-card pop-in' },
+        h('div', { class: 'learn-emoji' }, s.emoji),
+        h('div', { class: 'learn-text' }, s.text),
+        speaker(s.text, 'corner'),
+        h('div', { class: 'learn-count' }, `${i + 1} / ${act.slides.length}`)),
+      h('div', { class: 'learn-nav' }, back, next));
+    api.progress(i + 1, total);
+    api.say(first ? [act.intro, s.text] : s.text, s.text);
+  }
+  show(true);
+};
+
 /* ---------- match: pair each real-world card with its online card ---------- */
 Engines.match = (api, act) => {
   let sel = null, matched = 0;
@@ -332,13 +362,11 @@ Engines.pledge = (api, act) => {
   api.say(act.intro);
 
   function signStep() {
-    const input = h('input', { class: 'name-input', maxlength: 24, value: Store.get('name', ''), placeholder: '✍️', 'aria-label': 'Your name', autocomplete: 'off' });
+    const input = h('input', { class: 'name-input', maxlength: 24, placeholder: '✍️', 'aria-label': 'Your name', autocomplete: 'off' });
     const done = h('button', { class: 'big-btn go', type: 'button' }, '✓');
     const poster = () => {
       const name = input.value.replace(/[^A-Za-z \-']/g, '').trim();
       if (!name) { wiggle(input); api.say(P.nameFirst); return; }
-      Store.set('name', name);
-      Store.set('pledge', [...chosen]);
       api.stage.replaceChildren(pledgePoster(act, [...chosen], name));
       api.win(null, { keepGoing: true });
     };
@@ -363,13 +391,11 @@ function pledgePoster(act, chosen, name) {
 
 /* ---------- certificate ---------- */
 Engines.certificate = (api, act) => {
-  const name = Store.get('name', '');
-  const input = h('input', { class: 'name-input', maxlength: 24, value: name, 'aria-label': 'Your name', autocomplete: 'off' });
+  const input = h('input', { class: 'name-input', maxlength: 24, placeholder: '✍️', 'aria-label': 'Your name', autocomplete: 'off' });
   const go = h('button', { class: 'big-btn go', type: 'button' }, '✓');
   const show = () => {
     const n = input.value.replace(/[^A-Za-z \-']/g, '').trim();
     if (!n) { wiggle(input); api.say(P.nameFirst); return; }
-    Store.set('name', n);
     const print = h('button', { class: 'big-btn go no-print', type: 'button' }, '🖨️ Print');
     print.addEventListener('click', () => { Voice.say(P.printAsk); setTimeout(() => window.print(), 300); });
     api.stage.replaceChildren(h('div', { class: 'cert-wrap' },
@@ -380,8 +406,8 @@ Engines.certificate = (api, act) => {
         h('div', { class: 'cert-sub' }, 'This certificate is awarded to'),
         h('div', { class: 'cert-name' }, n),
         h('div', { class: 'cert-for' }, 'for being safe, kind and responsible online.'),
-        h('div', { class: 'cert-badges' }, CONTENT.weeks.map(w => h('div', { class: 'cert-badge' + (w.activities.some(a => Progress.has(a.id)) ? ' on' : '') }, h('span', null, w.emoji), w.kidTitle))),
-        h('div', { class: 'cert-foot' }, h('span', null, '🏅 ' + Progress.count() + ' badges'), h('span', null, new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })))),
+        h('div', { class: 'cert-badges' }, CONTENT.weeks.map(w => h('div', { class: 'cert-badge' + (' on') }, h('span', null, w.emoji), w.kidTitle))),
+        h('div', { class: 'cert-foot' }, h('span', null, new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })))),
       print));
     if (!Progress.has(act.id)) Progress.add(act.id);
     confetti(60); Sfx.win();
@@ -389,9 +415,6 @@ Engines.certificate = (api, act) => {
   };
   go.addEventListener('click', show);
   input.addEventListener('keydown', e => { if (e.key === 'Enter') show(); });
-  if (name) show();
-  else {
-    api.stage.append(h('div', { class: 'sign' }, h('div', { class: 'sign-emoji' }, '🏆'), input, go));
-    api.say(P.typeName);
-  }
+  api.stage.append(h('div', { class: 'sign' }, h('div', { class: 'sign-emoji' }, '🏆'), input, go));
+  api.say(P.typeName);
 };

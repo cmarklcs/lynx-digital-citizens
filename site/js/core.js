@@ -148,11 +148,18 @@ function burst(el, emoji = '⭐') {
 }
 function wiggle(el) { el.classList.remove('wiggle'); void el.offsetWidth; el.classList.add('wiggle'); }
 
-/* ---------- badges (one per finished activity, saved on this iPad) ---------- */
+/* ---------- badges ----------
+   Class iPads are shared, so badges belong to one student's lesson: they clear
+   after an hour with no play, or when the teacher taps New student. */
 const Progress = {
-  all() { return Store.get('done', {}); },
+  STALE: 60 * 60 * 1000,
+  all() {
+    const d = Store.get('done', null);
+    if (!d || !d.t || Date.now() - d.t > this.STALE) return {};
+    return d.ids || {};
+  },
   has(id) { return !!this.all()[id]; },
-  add(id) { const p = this.all(); p[id] = (p[id] || 0) + 1; Store.set('done', p); updateBadgeCount(); },
+  add(id) { const p = this.all(); p[id] = 1; Store.set('done', { t: Date.now(), ids: p }); updateBadgeCount(); },
   count() { return Object.keys(this.all()).length; },
   reset() { Store.remove('done'); updateBadgeCount(); }
 };
