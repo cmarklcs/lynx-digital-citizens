@@ -25,6 +25,7 @@
   ],
   "before": [
     "iPads charged, with headphones for every student",
+    "Keyboards attached and paired on every iPad (Meet the Keyboard, the password maker and Type a Kind Reply use them)",
     "Bookmark or add the site to each iPad’s Home Screen (Share ▸ Add to Home Screen)",
     "Test that sound plays on one iPad (check the silent switch and volume)",
     "Projector or Apple TV ready to play the Learn It story together",
@@ -43,13 +44,15 @@
         "What should the iPad look like when you hand it to the next friend?",
         "How are online rules like real-world rules?",
         "Is fixing a cracked screen a good or a service? Who pays for it?",
-        "Why can’t we trade our turn on a class iPad?"
+        "Why can’t we trade our turn on a class iPad?",
+        "Which key would you use to fix a typing mistake?"
       ],
       "home": "Ask your child to show you how they carry an iPad safely, and talk about your family’s device rules.",
       "check": [
         "1A Handles shared iPads responsibly and leaves them ready for the next user",
         "1B Explains what being online and a digital citizen mean",
-        "1C Explains producers, consumers, goods and services using our class iPads"
+        "1C Explains producers, consumers, goods and services using our class iPads",
+        "1D Finds Space, Return, Delete, Shift and the arrow keys on the keyboard"
       ],
       "pyp": "Fully integrated. Key concepts: Responsibility, Function. Students learn that the iPads were bought with real money and are a shared resource. They practise fair turn-taking as a kind of exchange and refuse to trade class iPad turns for a cookie. Care cards and Walk It to the Cart connect careless use to repair costs. Where Do iPads Come From? covers producers and consumers, goods and services, and opportunity cost (repair money can’t buy books). Learner profile: Principled."
     },
@@ -84,7 +87,8 @@
       "home": "Talk about which family information is private, and who your child can tell if a website asks for it.",
       "check": [
         "3A Identifies private information",
-        "3B Knows who may know their password"
+        "3B Knows who may know their password",
+        "3C Types a password with capitals, a number and a symbol"
       ],
       "pyp": "Key concepts: Connection, Value. Personal information has value, and “free” apps often trade games for data. Money information is for grown-ups only. Learner profile: Principled."
     },
@@ -99,7 +103,8 @@
       "home": "Write a kind message together to a family member or friend.",
       "check": [
         "4A Tells kind from unkind messages",
-        "4B Chooses a kind reply"
+        "4B Chooses a kind reply",
+        "4C Types and sends a kind reply using Shift, Space and Return"
       ],
       "pyp": "Key concept: Perspective. Trading in games is an exchange, so fair trades and kind “no thank yous” matter. Learner profile: Caring, Communicators."
     },

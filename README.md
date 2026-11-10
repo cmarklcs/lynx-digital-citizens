@@ -4,10 +4,10 @@ Six weeks of digital citizenship activities for Lausanne second graders on share
 
 | Week | Topic | Activities |
 |---|---|---|
-| 1 | My iPad, My Job | Learn It: What Is Online? (puzzles), Meet the iPad (names, then clues), iPad Care (sort), Walk It to the Cart (4 levels, moving obstacles), What Would You Do? (stories), Ready for the Next Friend (close apps, two-digit cart spot, plug in), Where Do iPads Come From? (producers, consumers, goods, services), Real World, Online World (match) |
+| 1 | My iPad, My Job | Learn It: What Is Online? (puzzles), Meet the iPad (names, then clues), Meet the Keyboard (press real keys, then type lynx), iPad Care (sort), Walk It to the Cart (4 levels, moving obstacles), What Would You Do? (stories), Ready for the Next Friend (close apps, two-digit cart spot, plug in), Where Do iPads Come From? (producers, consumers, goods, services), Real World, Online World (match) |
 | 2 | Screen Time, Green Time | Learn It: What Is Screen Time? (puzzles), Screen or Green? (sort), Spend My Time Coins (planner), How Does It Feel? (stories), Screen-Free Times (challenge), Saturday Time Budget (budget game) |
-| 3 | Keep It Private | Learn It: What Is Private? (puzzles), Private or OK to Share? (sort), Super Password Maker, Should I Share? (stories), Password and Privacy Detective (challenge) |
-| 4 | Kind Words Online | Learn It: Real People, Real Feelings (puzzles), Kind or Unkind? (sort), Pick a Kind Reply (pretend chat), Think Before You Send (stories), Fix the Message (challenge) |
+| 3 | Keep It Private | Learn It: What Is Private? (puzzles), Private or OK to Share? (sort), Super Password Maker (then type it into a dots box), Should I Share? (stories), Password and Privacy Detective (challenge) |
+| 4 | Kind Words Online | Learn It: Real People, Real Feelings (puzzles), Kind or Unkind? (sort), Pick a Kind Reply (pretend chat), Type a Kind Reply (choose, type, press Return), Think Before You Send (stories), Fix the Message (challenge) |
 | 5 | Stop, Think, Tell | Learn It: Stop, Think, Tell (puzzles), Stop, Think, Tell (stories), Spot the Ads, Who Can I Tell? (sort), Coin Shop (budget game), Real or Trick? (challenge) |
 | 6 | My Digital Footprint | Learn It: What Is a Digital Footprint? (puzzles), Footprint Check (sort), Be an Upstander (stories), The Grandma Test (challenge), Digital Citizen Pledge, Certificate |
 
@@ -26,3 +26,7 @@ Every student-facing line is recorded with the Mac's System voice (set to Siri) 
 3. Bump the `?v=` numbers in `site/index.html`, then commit and push.
 
 The iPads are shared, so badges only last one student's lesson: they clear after an hour with no play, or when a student taps "New student" on the start screen. Names typed on the pledge and certificate are never saved. Nothing is sent anywhere.
+
+## Keyboards
+
+The class iPads have keyboards. Meet the Keyboard listens for real key presses (tapping the picture also works). The typing box in the password maker and Type a Kind Reply checks each letter as it is typed. Passwords must match exactly, including capitals. In messages, punctuation and emoji fill in by themselves.

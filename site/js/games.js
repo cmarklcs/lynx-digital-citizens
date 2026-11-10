@@ -343,7 +343,13 @@ Engines.password = (api, act) => {
       api.say(P.passwordStrong);
       api.later(() => {
         board.remove();
-        scenarioView(api, [act.quiz], { intro: P.passwordSecret, onDone: () => api.win() });
+        const tb = typeBox(api, pw, { exact: true, mask: true, onDone: () => {
+          wrap.remove();
+          scenarioView(api, [act.quiz], { intro: P.passwordSecret, onDone: () => api.win() });
+        } });
+        const wrap = h('div', { class: 'pw-type pop-in' }, h('div', { class: 'pw-lock big' }, '🔒'), tb);
+        api.stage.append(wrap);
+        api.say(P.passwordType, P.passwordType);
       }, 4500);
     } else if (score > last) {
       api.say([word, score >= 3 ? P.passwordOk : P.passwordWeak].filter(Boolean), score >= 3 ? P.passwordOk : P.passwordWeak);

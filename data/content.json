@@ -44,7 +44,13 @@
     "learnNext": "Next",
     "learnCheck": "Quick check! Tap the best answer.",
     "learnBack": "Back",
-    "freshStart": "All set! Tap start to begin."
+    "freshStart": "All set! Tap start to begin.",
+    "returnKey": "Return",
+    "keepTyping": "Keep typing. Look at the next letter.",
+    "needShift": "That letter is a capital. Hold Shift and press it.",
+    "noShift": "That letter is small. Let go of Shift.",
+    "needSpace": "Press the space bar to make a space.",
+    "passwordType": "Now type your password on the keyboard. It shows dots so nobody can peek. Then press Return."
   },
   "weeks": [
     {
@@ -493,6 +499,52 @@
           "clueRight": "You know your iPad!"
         },
         {
+          "id": "keyboard",
+          "type": "keyboard",
+          "emoji": "⌨️",
+          "title": "Meet the Keyboard",
+          "intro": "Our iPads have keyboards! Listen, then press the key on your real keyboard.",
+          "tip": "Press keys on your real keyboard",
+          "wrongSay": "Not that key. Try again.",
+          "tapNote": "You tapped the picture. Try pressing the real key next time!",
+          "clueIntro": "Great! Now a harder round. Listen to the clue and press the key.",
+          "typeAsk": "Last job! Type the word lynx, then press Return.",
+          "typeWord": "lynx",
+          "winSay": "You know your keyboard!",
+          "keys": [
+            {
+              "id": "space",
+              "ask": "Press the space bar.",
+              "clue": "Which key makes a space between words?",
+              "info": "The space bar is the long key at the bottom. It makes a space between words."
+            },
+            {
+              "id": "return",
+              "ask": "Press the Return key.",
+              "clue": "Which key sends a message or starts a new line?",
+              "info": "Return sends what you typed, or starts a new line."
+            },
+            {
+              "id": "delete",
+              "ask": "Press the Delete key.",
+              "clue": "Which key erases a mistake?",
+              "info": "Delete erases the letter right before the cursor."
+            },
+            {
+              "id": "shift",
+              "ask": "Press the Shift key.",
+              "clue": "Which key do you hold to make a capital letter?",
+              "info": "Hold Shift and press a letter to make a capital letter."
+            },
+            {
+              "id": "arrows",
+              "ask": "Press an arrow key.",
+              "clue": "Which keys move the cursor left and right?",
+              "info": "Arrow keys move the cursor without erasing anything."
+            }
+          ]
+        },
+        {
           "id": "care",
           "type": "sort",
           "emoji": "🤲",
@@ -588,6 +640,24 @@
               "text": "Remember the iPad cost our school money",
               "bin": "yes",
               "why": "Knowing it costs money helps us take good care of it."
+            },
+            {
+              "emoji": "⌨️",
+              "text": "Close the keyboard cover gently",
+              "bin": "yes",
+              "why": "Gentle hands keep the keyboard and screen safe."
+            },
+            {
+              "emoji": "🍪",
+              "text": "Eat snacks over the keyboard",
+              "bin": "no",
+              "why": "Crumbs get stuck under the keys. Keep food away."
+            },
+            {
+              "emoji": "👊",
+              "text": "Bang on the keys",
+              "bin": "no",
+              "why": "Press keys with soft fingers, or they can break. Repairs cost money."
             }
           ]
         },
@@ -3151,6 +3221,109 @@
                 }
               ],
               "react": "OK, no problem! 🐸"
+            }
+          ]
+        },
+        {
+          "id": "typechat",
+          "type": "typechat",
+          "emoji": "⌨️",
+          "title": "Type a Kind Reply",
+          "intro": "Pick the kind reply. Then type it on your keyboard and press Return to send.",
+          "typeAsk": "Now type it. Watch the letters turn green. Then press Return to send.",
+          "winSay": "You typed kind messages all by yourself!",
+          "items": [
+            {
+              "from": "🐨",
+              "name": "Koala",
+              "text": "I finished my art project!",
+              "react": "Thanks! 😊",
+              "replies": [
+                {
+                  "text": "Great job!",
+                  "good": true,
+                  "feedback": "Yes! Cheering a friend on is kind."
+                },
+                {
+                  "text": "Mine is better.",
+                  "good": false,
+                  "feedback": "That could hurt. Pick a kind reply."
+                },
+                {
+                  "text": "So what?",
+                  "good": false,
+                  "feedback": "That sounds rude. Pick a kind reply."
+                }
+              ]
+            },
+            {
+              "from": "🦁",
+              "name": "Lion",
+              "text": "Nobody wants to play with me. 😢",
+              "react": "Yes! Thank you! 💛",
+              "replies": [
+                {
+                  "text": "Want to play with me?",
+                  "good": true,
+                  "feedback": "Yes! Inviting someone is kind."
+                },
+                {
+                  "text": "That's your problem.",
+                  "good": false,
+                  "feedback": "That is unkind. Pick a kind reply."
+                },
+                {
+                  "text": "Ha ha!",
+                  "good": false,
+                  "feedback": "Laughing at someone who is sad hurts. Pick a kind reply."
+                }
+              ]
+            },
+            {
+              "from": "🐙",
+              "name": "Octopus",
+              "text": "I lent you my pencil yesterday.",
+              "react": "You're welcome! 🐙",
+              "replies": [
+                {
+                  "text": "Thank you!",
+                  "good": true,
+                  "feedback": "Yes! Saying thank you is kind."
+                },
+                {
+                  "text": "I lost it.",
+                  "good": false,
+                  "feedback": "Be honest, and say thank you too. Pick the kind reply."
+                },
+                {
+                  "text": "Whatever.",
+                  "good": false,
+                  "feedback": "Whatever sounds rude. Pick a kind reply."
+                }
+              ]
+            },
+            {
+              "from": "🐻",
+              "name": "Bear",
+              "text": "I fell at recess today.",
+              "react": "I'm OK now. Thanks for asking!",
+              "replies": [
+                {
+                  "text": "Are you OK?",
+                  "good": true,
+                  "feedback": "Yes! Checking on a friend is kind."
+                },
+                {
+                  "text": "LOL",
+                  "good": false,
+                  "feedback": "Laughing when someone is hurt is unkind."
+                },
+                {
+                  "text": "You are clumsy.",
+                  "good": false,
+                  "feedback": "That could hurt. Pick a kind reply."
+                }
+              ]
             }
           ]
         },
